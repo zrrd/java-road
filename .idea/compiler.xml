@@ -7,20 +7,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="concurrent" />
-        <module name="learn" />
         <module name="mybaits_plus" />
         <module name="scheduled" />
-        <module name="springboot-scheduled" />
-        <module name="thread-learn" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="concurrent" target="1.8" />
-      <module name="learn" target="1.8" />
+      <module name="javaroad" target="1.5" />
       <module name="mybaits_plus" target="1.8" />
       <module name="scheduled" target="1.8" />
-      <module name="springboot-scheduled" target="1.8" />
-      <module name="thread-learn" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
