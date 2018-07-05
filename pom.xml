@@ -9,8 +9,14 @@
 
         <!-- 待聚合模块 -->
     <modules>
+        <module>annotation</module>
         <module>concurrent</module>
+        <module>date</module>
+        <module>enuml</module>
+        <module>generic</module>
+        <module>java8</module>
         <module>mybaits_plus</module>
+        <module>reflection</module>
         <module>scheduled</module>
     </modules>
 

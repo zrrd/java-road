@@ -15,6 +15,7 @@
         <module name="mybaits_plus" />
         <module name="reflection" />
         <module name="scheduled" />
+        <module name="validation" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -28,6 +29,7 @@
       <module name="mybaits_plus" target="1.8" />
       <module name="reflection" target="1.8" />
       <module name="scheduled" target="1.8" />
+      <module name="validation" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -13,6 +13,7 @@
         <option value="$PROJECT_DIR$/enuml/pom.xml" />
         <option value="$PROJECT_DIR$/annotation/pom.xml" />
         <option value="$PROJECT_DIR$/reflection/pom.xml" />
+        <option value="$PROJECT_DIR$/validation/pom.xml" />
       </list>
     </option>
   </component>
