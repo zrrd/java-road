@@ -10,9 +10,11 @@ import java.util.concurrent.TimeUnit;
  * @author shaoyijiong
  * @since 2018/7/3
  */
-public class Consumer implements Runnable{
+public class Consumer implements Runnable {
 
-  public Consumer(BlockingQueue<String> queue) {
+  private BlockingQueue<String> queue;
+
+  Consumer(BlockingQueue<String> queue) {
     this.queue = queue;
   }
 
@@ -42,7 +44,6 @@ public class Consumer implements Runnable{
     }
   }
 
-  private BlockingQueue<String> queue;
-  private static final int      DEFAULT_RANGE_FOR_SLEEP = 1000;
+  private static final int DEFAULT_RANGE_FOR_SLEEP = 1000;
 
 }

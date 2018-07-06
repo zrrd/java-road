@@ -24,7 +24,7 @@ public class Producer implements Runnable {
 
   @Override
   public void run() {
-    String data = null;
+    String data;
     Random r = new Random();
     System.out.println("启动生产者线程！");
     try {
