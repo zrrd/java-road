@@ -4,5 +4,4 @@ concurrent/src/main/resources/templates/
 scheduled/src/main/resources/static/
 scheduled/src/main/resources/templates/
 target
-.idea/libraries/
-.idea/workspace.xml
+.idea

@@ -29,7 +29,7 @@ public class Game extends Model<Game> {
 
   private Score score;
 
-
+  private String image;
 
   /**
    * 新增游戏构造方法
@@ -41,6 +41,7 @@ public class Game extends Model<Game> {
     this.price = gameDto.getPrice();
     this.publishDate = gameDto.getPublishDate();
     this.score = Score.valueOf(gameDto.getScore());
+    this.image = gameDto.getImage();
   }
 
 

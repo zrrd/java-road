@@ -22,4 +22,5 @@ public class GameDto {
 
   private Double score;
 
+  private String image;
 }

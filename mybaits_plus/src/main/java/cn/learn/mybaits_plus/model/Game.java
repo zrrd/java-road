@@ -22,4 +22,6 @@ public class Game {
 
   private Double score;
 
+  private String image;
+
 }

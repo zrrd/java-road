@@ -22,10 +22,13 @@ public class GameDto {
 
   private Double score;
 
-  public GameDto(String name, Double price, Date publishDate, Double score) {
+  private String image;
+
+  public GameDto(String name, Double price, Date publishDate, Double score, String image) {
     this.name = name;
     this.price = price;
     this.publishDate = publishDate;
     this.score = score;
+    this.image = image;
   }
 }

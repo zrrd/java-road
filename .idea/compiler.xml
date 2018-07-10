@@ -19,16 +19,16 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="annotation" target="1.5" />
-      <module name="concurrent" target="1.5" />
-      <module name="date" target="1.5" />
-      <module name="enuml" target="1.5" />
-      <module name="generic" target="1.5" />
-      <module name="java8" target="1.5" />
+      <module name="annotation" target="1.8" />
+      <module name="concurrent" target="1.8" />
+      <module name="date" target="1.8" />
+      <module name="enuml" target="1.8" />
+      <module name="generic" target="1.8" />
+      <module name="java8" target="1.8" />
       <module name="javaroad" target="1.5" />
-      <module name="mybaits_plus" target="1.5" />
-      <module name="reflection" target="1.5" />
-      <module name="scheduled" target="1.5" />
+      <module name="mybaits_plus" target="1.8" />
+      <module name="reflection" target="1.8" />
+      <module name="scheduled" target="1.8" />
       <module name="validation" target="1.8" />
     </bytecodeTargetLevel>
   </component>
