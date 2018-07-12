@@ -12,6 +12,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     <module>annotation</module>
     <module>concurrent</module>
     <module>date</module>
+    <module>design_pattern</module>
     <module>enuml</module>
     <module>generic</module>
     <module>java8</module>

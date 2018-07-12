@@ -9,6 +9,7 @@
         <module name="annotation" />
         <module name="concurrent" />
         <module name="date" />
+        <module name="design_pattern" />
         <module name="enuml" />
         <module name="generic" />
         <module name="java8" />
@@ -22,6 +23,7 @@
       <module name="annotation" target="1.8" />
       <module name="concurrent" target="1.8" />
       <module name="date" target="1.8" />
+      <module name="design_pattern" target="1.8" />
       <module name="enuml" target="1.8" />
       <module name="generic" target="1.8" />
       <module name="java8" target="1.8" />
