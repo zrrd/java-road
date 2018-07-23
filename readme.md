@@ -8,4 +8,5 @@
 * mybaits_plus   mybaits-plus插件
 * reflection     反射
 * scheduled      spring schedule 定时任务
+* socket         socket网络编程
 * validation     校验框架 自定义校验

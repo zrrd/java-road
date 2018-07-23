@@ -13,6 +13,7 @@
       <module fileurl="file://$PROJECT_DIR$/mybaits_plus/mybaits_plus.iml" filepath="$PROJECT_DIR$/mybaits_plus/mybaits_plus.iml" />
       <module fileurl="file://$PROJECT_DIR$/reflection/reflection.iml" filepath="$PROJECT_DIR$/reflection/reflection.iml" />
       <module fileurl="file://$PROJECT_DIR$/scheduled/scheduled.iml" filepath="$PROJECT_DIR$/scheduled/scheduled.iml" />
+      <module fileurl="file://$PROJECT_DIR$/scoket/scoket.iml" filepath="$PROJECT_DIR$/scoket/scoket.iml" />
       <module fileurl="file://$PROJECT_DIR$/validation/validation.iml" filepath="$PROJECT_DIR$/validation/validation.iml" />
     </modules>
   </component>

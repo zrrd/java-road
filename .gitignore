@@ -5,3 +5,6 @@ scheduled/src/main/resources/static/
 scheduled/src/main/resources/templates/
 target
 .idea
+.mvn
+mvnw
+mvnw.cmd
