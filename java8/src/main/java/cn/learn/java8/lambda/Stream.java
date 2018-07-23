@@ -3,6 +3,7 @@ package cn.learn.java8.lambda;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -69,5 +70,11 @@ public class Stream {
     System.out.println(list.stream().anyMatch(g -> "ok".equals(g)));
     System.out.println(list.stream().allMatch(g -> "ok".equals(g)));
     System.out.println(list.stream().noneMatch(g -> "pp".equals(g)));
+
+    //list转map
+    String asrtextall = "1.你好;3.撒旦;56.介绍";
+    Map<String, String> map = Arrays.asList(asrtextall.split(";")).stream()
+        .collect(Collectors.toMap(b -> b.split("\\.")[0], b -> b.split("\\.")[1]));
+    System.out.println(map);
   }
 }
