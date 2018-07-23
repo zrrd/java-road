@@ -3,6 +3,7 @@
 * date           各种时间格式
 * deaign_pattern 设计模式
 * enuml          枚举
+* fast-json      阿里 fast-json api
 * generic        泛型
 * java8          java8新特性
 * mybaits_plus   mybaits-plus插件

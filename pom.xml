@@ -14,11 +14,13 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     <module>date</module>
     <module>design_pattern</module>
     <module>enuml</module>
+    <module>fast-json</module>
     <module>generic</module>
     <module>java8</module>
     <module>mybaits_plus</module>
     <module>reflection</module>
     <module>scheduled</module>
+    <module>scoket</module>
     <module>validation</module>
 </modules>
 

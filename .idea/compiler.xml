@@ -11,6 +11,7 @@
         <module name="date" />
         <module name="design_pattern" />
         <module name="enuml" />
+        <module name="fast-json" />
         <module name="generic" />
         <module name="java8" />
         <module name="mybaits_plus" />
@@ -26,6 +27,7 @@
       <module name="date" target="1.8" />
       <module name="design_pattern" target="1.8" />
       <module name="enuml" target="1.8" />
+      <module name="fast-json" target="1.8" />
       <module name="generic" target="1.8" />
       <module name="java8" target="1.8" />
       <module name="javaroad" target="1.5" />

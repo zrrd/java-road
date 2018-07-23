@@ -16,6 +16,7 @@
         <option value="$PROJECT_DIR$/validation/pom.xml" />
         <option value="$PROJECT_DIR$/design_pattern/pom.xml" />
         <option value="$PROJECT_DIR$/scoket/pom.xml" />
+        <option value="$PROJECT_DIR$/fast-json/pom.xml" />
       </list>
     </option>
   </component>
