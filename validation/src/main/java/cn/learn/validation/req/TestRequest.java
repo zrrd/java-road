@@ -2,15 +2,15 @@ package cn.learn.validation.req;
 
 import java.util.Date;
 import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import lombok.Data;
-import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 
 /**
@@ -76,7 +76,7 @@ public class TestRequest {
    *  被注释的字符串的必须非空
    */
   @NotEmpty
-  String NotEmptyTest;
+  String notEmptyTest;
 
   /**
    * 被注释的元素必须在合适的范围内
