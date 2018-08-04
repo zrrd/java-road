@@ -13,11 +13,12 @@
         <module name="enuml" />
         <module name="fast-json" />
         <module name="generic" />
+        <module name="io" />
         <module name="java8" />
         <module name="mybaits_plus" />
         <module name="reflection" />
-        <module name="scheduled" />
         <module name="scoket" />
+        <module name="socket" />
         <module name="validation" />
       </profile>
     </annotationProcessing>
@@ -29,12 +30,14 @@
       <module name="enuml" target="1.8" />
       <module name="fast-json" target="1.8" />
       <module name="generic" target="1.8" />
+      <module name="io" target="1.8" />
       <module name="java8" target="1.8" />
       <module name="javaroad" target="1.5" />
       <module name="mybaits_plus" target="1.8" />
       <module name="reflection" target="1.8" />
       <module name="scheduled" target="1.8" />
       <module name="scoket" target="1.8" />
+      <module name="socket" target="1.8" />
       <module name="validation" target="1.8" />
     </bytecodeTargetLevel>
   </component>
