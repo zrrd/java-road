@@ -20,6 +20,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     <module>java8</module>
     <module>mybaits_plus</module>
     <module>reflection</module>
+    <module>regex</module>
     <module>socket</module>
     <module>validation</module>
 </modules>

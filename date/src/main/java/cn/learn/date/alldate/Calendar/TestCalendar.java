@@ -27,6 +27,7 @@ public class TestCalendar {
   public static void main(String[] args) {
     System.out.println(calendar0.getCalendarType());
     System.out.println(calendar0.getTimeZone());
+    System.out.println(calendar0.get(Calendar.SECOND));
     System.out.println(getTimeAnyway());
   }
 
