@@ -1,6 +1,7 @@
 package cn.learn.java8.lambda;
 
 import java.util.Optional;
+import java.util.Random;
 
 /**
  * Optional避免空指针异常.
@@ -11,8 +12,11 @@ import java.util.Optional;
 public class OptionalTest {
 
   public static void main(String[] args) {
-    String str = "hello";
-    String test = Optional.ofNullable(str).map(s -> s+"a").orElse("空");
+    Random random = new Random();
+    int i = random.nextInt(100);
+
+    String str = i > 50 ? "hello" : null;
+    String test = Optional.ofNullable(str).map(s -> s + "a").orElse("空");
     System.out.println(test);
   }
 }

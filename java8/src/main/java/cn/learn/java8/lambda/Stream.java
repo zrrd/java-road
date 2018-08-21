@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Lambda 测试类
@@ -67,14 +68,20 @@ public class Stream {
     //匹配
     //有匹配OK的
     System.out.println("匹配");
-    System.out.println(list.stream().anyMatch(g -> "ok".equals(g)));
-    System.out.println(list.stream().allMatch(g -> "ok".equals(g)));
-    System.out.println(list.stream().noneMatch(g -> "pp".equals(g)));
+    System.out.println(list.stream().anyMatch("ok"::equals));
+    System.out.println(list.stream().allMatch("ok"::equals));
+    System.out.println(list.stream().noneMatch("pp"::equals));
 
     //list转map
     String asrtextall = "1.你好;3.撒旦;56.介绍";
-    Map<String, String> map = Arrays.asList(asrtextall.split(";")).stream()
+    //toMap  key 映射 value映射
+    Map<String, String> map = Arrays.stream(asrtextall.split(";"))
         .collect(Collectors.toMap(b -> b.split("\\.")[0], b -> b.split("\\.")[1]));
     System.out.println(map);
+
+    //并行操作  将 stream 换为 parallelStream
+
+    //循环4次
+    IntStream.range(1, 4).forEach(System.out::println);
   }
 }
