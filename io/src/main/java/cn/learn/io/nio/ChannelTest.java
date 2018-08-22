@@ -9,7 +9,8 @@ import org.apache.commons.lang3.ArrayUtils;
 
 /**
  * Channel测试
- *
+ * FileChannel(File) DatagramChannel(UDP)
+ * SocketChannel(TCP) ServerSocketChannel
  * @author 邵益炯
  * @date 2018/8/21
  */
