@@ -2,6 +2,8 @@ package cn.learn.io.nio;
 
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.concurrent.ExecutorService;
@@ -55,16 +57,20 @@ public class SockerChannelTest {
 
     @Override
     public void run() {
-      try (ServerSocketChannel serverSocketChannel = ServerSocketChannel.open()) {
-        serverSocketChannel.configureBlocking(false);
+      try (Selector selector = Selector.open();
+          ServerSocketChannel serverSocket = ServerSocketChannel.open()) {
+        serverSocket.bind(new InetSocketAddress("127.0.0.1",2333));
+        serverSocket.configureBlocking(false);
+        serverSocket.register(selector, SelectionKey.OP_ACCEPT);
         while (true) {
-          SocketChannel socketChannel = serverSocketChannel.accept();
+          selector.select();
+          SocketChannel socketChannel = serverSocket.accept();
           ByteBuffer buf = ByteBuffer.allocate(48);
           int bytesRead = socketChannel.read(buf);
           byte[] b = new byte[10];
           while (bytesRead != -1) {
             buf.flip();
-            while (buf.hasRemaining()) {
+            while (buf.remaining()>10) {
               buf.get(b);
               bytes = ArrayUtils.addAll(bytes, b);
             }
@@ -77,6 +83,7 @@ public class SockerChannelTest {
             System.out.println(str);
             break;
           }
+          System.out.println(new String(bytes));
         }
       } catch (Exception e) {
         e.printStackTrace();
@@ -84,9 +91,10 @@ public class SockerChannelTest {
     }
   }
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws InterruptedException {
     ExecutorService pool = Executors.newFixedThreadPool(2);
     pool.submit(new Server());
+    Thread.sleep(5000);
     pool.submit(new Client());
   }
 
