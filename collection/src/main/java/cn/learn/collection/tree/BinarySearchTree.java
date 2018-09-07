@@ -38,24 +38,49 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
     }
   }
 
+  /**
+   * 二叉查找树root结点
+   */
   private BinaryNode<AnyType> root;
 
+  /**
+   * 新建二叉查找树
+   */
   public BinarySearchTree() {
     root = null;
   }
 
+  /**
+   * 清空二叉查找树
+   */
   public void makeEmpty() {
     root = null;
   }
 
+  /**
+   * 判断二叉查找树是否为空
+   *
+   * @return true 空 false 不为空
+   */
   public boolean isEmpty() {
     return root == null;
   }
 
+  /**
+   * 二叉查找树是否包含某个结点
+   *
+   * @param x 结点
+   * @return true 包含 false 不包含
+   */
   public boolean contains(AnyType x) {
     return contains(x, root);
   }
 
+  /**
+   * 寻找二叉树最小的结点
+   *
+   * @return 结点信息
+   */
   public AnyType findMin() {
     if (isEmpty()) {
       throw new RuntimeException();
@@ -63,6 +88,11 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
     return findMin(root).element;
   }
 
+  /**
+   * 寻找二叉树最大的结点
+   *
+   * @return 结点信息
+   */
   public AnyType findMax() {
     if (isEmpty()) {
       throw new RuntimeException();
@@ -100,6 +130,9 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
     return t;
   }
 
+  /**
+   * 二叉查找树找最大 一直向左找
+   */
   private BinaryNode<AnyType> findMax(BinaryNode<AnyType> t) {
     if (t != null) {
       while (t.left != null) {
@@ -109,6 +142,12 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
     return t;
   }
 
+
+  /**
+   * 插入二叉查找树 递归插入
+   *
+   * @param x 结点
+   */
   private BinaryNode<AnyType> insert(AnyType x, BinaryNode<AnyType> t) {
     if (t == null) {
       return new BinaryNode<>(x, null, null);

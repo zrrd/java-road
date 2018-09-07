@@ -1,6 +1,7 @@
 package cn.learn.validation.req;
 
 import java.util.Date;
+import java.util.List;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
@@ -43,10 +44,10 @@ public class TestRequest {
   int minTest;
 
   /**
-   * 数字在指定范围内
+   * 校验数组集合长度
    */
   @Size(min = 1,max = 10)
-  int sizeTest;
+  List<String> sizeTest;
 
   /**
    * 必须为过去的日期 @Feature
@@ -82,6 +83,6 @@ public class TestRequest {
    * 被注释的元素必须在合适的范围内
    */
   @Range(min = 0,max = 2)
-  String rangeTest;
+  int rangeTest;
 
 }

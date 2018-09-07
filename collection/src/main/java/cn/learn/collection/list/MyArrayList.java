@@ -1,8 +1,6 @@
 package cn.learn.collection.list;
 
-import com.sun.istack.internal.NotNull;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Iterator;
 
 /**
@@ -27,6 +25,11 @@ public class MyArrayList<AnyType> implements Iterable<AnyType> {
    * 初始长度
    */
   private static final int DEFULT_CAPACITY = 10;
+
+  public MyArrayList(int capacity) {
+    size = 0;
+    ensureCapacity(capacity);
+  }
 
   /**
    * 构造

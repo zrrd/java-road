@@ -10,7 +10,7 @@ import java.util.Arrays;
  */
 public class LoopQueue<AnyType> {
 
-  private Object[] data = null;
+  private Object[] data;
   /**
    * 队列容量
    */
@@ -107,5 +107,10 @@ public class LoopQueue<AnyType> {
     size = 0;
     front = 0;
     rear = 0;
+  }
+
+  @Override
+  public String toString() {
+    return Arrays.toString(data);
   }
 }
