@@ -9,7 +9,7 @@ package cn.learn.collection.tree;
 public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
 
   /**
-   * 二叉树结点
+   * 二叉树结点 原理 1.左结点始终小于根结点 2.右结点始终大于根结点 3.左右子树也能够称为二叉排序树
    */
   private static class BinaryNode<AnyType> {
 
@@ -101,7 +101,7 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
   }
 
   public void insert(AnyType x) {
-    insert(x, root);
+    root = insert(x, root);
   }
 
   /**
@@ -149,6 +149,7 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
    * @param x 结点
    */
   private BinaryNode<AnyType> insert(AnyType x, BinaryNode<AnyType> t) {
+    //头结点为空 将这个数据设置为头结点
     if (t == null) {
       return new BinaryNode<>(x, null, null);
     }
@@ -163,4 +164,25 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
     return t;
   }
 
+  public BinaryNode<AnyType> delete(AnyType x) {
+    return delete(x, root);
+  }
+
+  private BinaryNode<AnyType> delete(AnyType x, BinaryNode<AnyType> t) {
+    if (t == null) {
+      return null;
+    }
+    int compareResult = x.compareTo(t.element);
+    if (compareResult > 0) {
+      t.right = delete(x, t.right);
+    } else if (compareResult < 0) {
+      t.left = delete(x, t.left);
+    } else if (t.left != null && t.right != null) {
+      t.element = findMin(t.right).element;
+      t.right = delete(x, t.right);
+    } else {
+      t = (t.left != null) ? t.left : t.right;
+    }
+    return t;
+  }
 }
