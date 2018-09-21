@@ -43,10 +43,10 @@ public class MapTest {
     String w3 = new String("three");
 
     Map<String, String> weakHashMap = new WeakHashMap<>();
-    weakHashMap.put(w1, "w1");
-    weakHashMap.put(w2, "w2");
     weakHashMap.put(w3, "w3");
 
+    weakHashMap.put(w1, "w1");
+    weakHashMap.put(w2, "w2");
     System.out.println(weakHashMap.containsKey("one"));
 
     w1 = null;
