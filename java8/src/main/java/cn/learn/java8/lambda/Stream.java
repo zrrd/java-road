@@ -2,10 +2,8 @@ package cn.learn.java8.lambda;
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -85,5 +83,15 @@ public class Stream {
 
     //循环4次
     IntStream.range(1, 4).forEach(System.out::println);
+
+    //收集函数
+
+
+    //分区函数 分成长度大于2的 和长度小于2的
+    Map<Boolean, List<String>> collect1 = list.stream()
+        .collect(Collectors.partitioningBy(c -> c.length() > 2));
+    //根据字符串长度分组
+    Map<Integer, List<String>> collect2 = list.stream()
+        .collect(Collectors.groupingBy(String::length));
   }
 }

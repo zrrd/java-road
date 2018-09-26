@@ -1,6 +1,5 @@
 package cn.learn.java8.lambda;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,7 +7,7 @@ import java.util.List;
  * @author jiudao
  */
 public class Lambda {
-    public void LambdaTest() {
+    public void lambdaTest() {
         /*java8之前*/
         List<String> list = Arrays.asList("a","b","c");
         for (String s : list){
