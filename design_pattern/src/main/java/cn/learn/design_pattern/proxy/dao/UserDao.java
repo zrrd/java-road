@@ -19,5 +19,5 @@ public interface UserDao {
    *
    * @param user 用户实体类
    */
-  void grow(User user);
+  void growUp(User user);
 }

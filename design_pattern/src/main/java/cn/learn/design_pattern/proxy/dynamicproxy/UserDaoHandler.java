@@ -24,11 +24,14 @@ public class UserDaoHandler implements InvocationHandler {
 
   @Override
   public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-    System.out.println("动态代理开始了");
-    System.out.println("动态代理做事");
-    Object result = method.invoke(target, args);
-    System.out.println("动态代理结束了");
-    return result;
+    String methodNme = method.getName();
+    if ("growUp".equals(methodNme)) {
+      System.out.println("用户长大的动态代理");
+    }
+    if ("save".equals(methodNme)) {
+      System.out.println("用户保存动态代理");
+    }
+    return method.invoke(target, args);
   }
 }
 
@@ -44,6 +47,7 @@ class Test {
     UserDao proxy = (UserDao) Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),
         userDao.getClass().getInterfaces(), userDaoHandler);
     User user = new User("a", 10);
-    proxy.grow(user);
+    proxy.growUp(user);
+    proxy.save(user);
   }
 }

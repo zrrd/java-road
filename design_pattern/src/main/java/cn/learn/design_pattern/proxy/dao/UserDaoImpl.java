@@ -17,7 +17,7 @@ public class UserDaoImpl implements UserDao {
   }
 
   @Override
-  public void grow(User user) {
+  public void growUp(User user) {
     System.out.println(user.getAge() + 1 + "岁," + "用户有长大一岁了");
   }
 }

@@ -36,10 +36,10 @@ public class UserDaoProxy implements UserDao {
   }
 
   @Override
-  public void grow(User user) {
+  public void growUp(User user) {
     System.out.println("代理开始了");
     System.out.println("代理做事");
-    target.grow(user);
+    target.growUp(user);
     System.out.println("代理开始了");
     System.out.println("代理作数");
   }
