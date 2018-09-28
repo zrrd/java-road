@@ -12,50 +12,52 @@ import cn.learn.design_pattern.proxy.dao.UserDaoImpl;
  */
 public class UserDaoProxy implements UserDao {
 
-    /**
-     * 需要的代理类
-     */
-    private UserDao target;
+  /**
+   * 需要的代理类
+   */
+  private UserDao target;
 
-    public UserDaoProxy(UserDao target) {
-        this.target = target;
-    }
+  UserDaoProxy(UserDao target) {
+    this.target = target;
+  }
 
-    /**
-     * 代理方法
-     * @param user 要保存的用户
-     */
-    @Override
-    public void save(User user) {
-        System.out.println("代理开始了");
-        System.out.println("代理做事");
-        target.save(user);
-        System.out.println("代理开始了");
-        System.out.println("代理作数");
-    }
+  /**
+   * 代理方法
+   *
+   * @param user 要保存的用户
+   */
+  @Override
+  public void save(User user) {
+    System.out.println("代理开始了");
+    System.out.println("代理做事");
+    target.save(user);
+    System.out.println("代理开始了");
+    System.out.println("代理作数");
+  }
 
-    @Override
-    public void grow(User user) {
-        System.out.println("代理开始了");
-        System.out.println("代理做事");
-        target.grow(user);
-        System.out.println("代理开始了");
-        System.out.println("代理作数");
-    }
+  @Override
+  public void grow(User user) {
+    System.out.println("代理开始了");
+    System.out.println("代理做事");
+    target.grow(user);
+    System.out.println("代理开始了");
+    System.out.println("代理作数");
+  }
 }
 
 
 /**
  * 测试类
  */
-class Test{
-    public static void main(String[] args) {
-        UserDao userDaoImpl = new UserDaoImpl();
-        //将代理类与要被代理的类做关联
-        UserDaoProxy userDaoProxy = new UserDaoProxy(userDaoImpl);
+class Test {
 
-        //执行代理方法
-        User u = new User("a",10);
-        userDaoProxy.save(u);
-    }
+  public static void main(String[] args) {
+    UserDao userDaoImpl = new UserDaoImpl();
+    //将代理类与要被代理的类做关联
+    UserDaoProxy userDaoProxy = new UserDaoProxy(userDaoImpl);
+
+    //执行代理方法
+    User u = new User("a", 10);
+    userDaoProxy.save(u);
+  }
 }

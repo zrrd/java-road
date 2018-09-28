@@ -11,13 +11,13 @@ import cn.learn.design_pattern.proxy.dao.UserDao;
  */
 public class UserDaoImpl implements UserDao {
 
-    @Override
-    public void save(User user) {
-        System.out.println(user + "以保存");
-    }
+  @Override
+  public void save(User user) {
+    System.out.println(user + "以保存");
+  }
 
-    @Override
-    public void grow(User user) {
-        System.out.println(user.getAge()+1+"岁," + "用户有长大一岁了");
-    }
+  @Override
+  public void grow(User user) {
+    System.out.println(user.getAge() + 1 + "岁," + "用户有长大一岁了");
+  }
 }
