@@ -5,6 +5,7 @@
 * enuml          枚举
 * fast-json      阿里 fast-json api
 * generic        泛型
+* goodcode       好的代码风格
 * io             java各种io模式的应用
 * java8          java8新特性
 * jvm            java虚拟机
