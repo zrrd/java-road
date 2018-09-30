@@ -4,6 +4,7 @@ import com.google.common.base.CaseFormat;
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.google.common.base.Strings;
 import java.util.List;
 
 /**
@@ -53,6 +54,7 @@ public class StringsTest {
   }
 
   private static void stringsTest() {
+    Strings.isNullOrEmpty("a");
     //各种StringUtils用到的类
   }
 
