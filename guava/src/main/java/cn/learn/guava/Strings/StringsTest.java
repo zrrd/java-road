@@ -59,6 +59,6 @@ public class StringsTest {
   }
 
   public static void main(String[] args) {
-    splitterTest();
+    stringsTest();
   }
 }
