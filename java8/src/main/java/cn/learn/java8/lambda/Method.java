@@ -3,8 +3,8 @@ package cn.learn.java8.lambda;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
@@ -21,36 +21,41 @@ public class Method {
    */
   private static void testPredicates() {
     //参数 String  返回 boolean
-    Predicate<String> predicate = (s) -> s.length() > 0;
+    Predicate<String> predicate = s -> s.length() > 0;
     // true
     System.out.println("test1:" + predicate.test("foo"));
     // false
     System.out.println("test2:" + predicate.negate().test("foo"));
-    Predicate<Boolean> nonNull = Objects::nonNull;
-    Predicate<Boolean> isNull = Objects::isNull;
-    Predicate<String> isEmpty = String::isEmpty;
-    System.out.println("test3:" + isEmpty.test(""));
-    Predicate<String> isNotEmpty = isEmpty.negate();
+
+    Predicate<String> predicate1 = s -> s.length() > 2;
+    Predicate<String> predicate2 = s -> s.length() < 5;
+    //且关系
+    Predicate<String> predicate3 = predicate1.and(predicate2);
+    //false
+    System.out.println("test3:" + predicate3.test("hello world"));
+    //或关系
+    Predicate<String> predicate4 = predicate1.or(predicate2);
+    //true
+    System.out.println("test4:" + predicate4.test("hello world"));
   }
 
   /**
-   * Function接口接收一个参数，并返回单一的结果
-   * apply 返回值 compose 在方法前调用 andThen 在方法后调用
+   * Function接口接收一个参数，并返回单一的结果 apply 返回值 compose 在方法前调用 andThen 在方法后调用
    */
   private static void testFunctions() {
     //参数 String 返回 Integer  input result
-    java.util.function.Function<String, Integer> toInteger = Integer::valueOf;
+    Function<String, Integer> toInteger = Integer::valueOf;
     //在toInteger后调用
-    java.util.function.Function<String, String> backToString = toInteger.andThen(String::valueOf);
+    Function<String, String> backToString = toInteger.andThen(String::valueOf);
     //在toInteger前调用
-    java.util.function.Function<String, Integer> backToInteger = toInteger.compose(String::valueOf);
+    Function<String, Integer> backToInteger = toInteger.compose(String::valueOf);
     // "123"
-    System.out.println(backToString.apply("123")+1);
-    System.out.println(backToInteger.apply("123")+1);
+    System.out.println(backToString.apply("123") + 1);
+    System.out.println(backToInteger.apply("123") + 1);
   }
 
   /**
-   * Supplier接口产生一个给定类型的结果。与Function不同的是，Supplier没有输入参数
+   * Supplier接口产生一个给定类型的结果。与Function不同的是，Supplier没有输入参数 实现get方法
    */
   private static void testSuppliers() {
     Supplier<List<String>> listSupplier = ArrayList::new;
@@ -60,7 +65,7 @@ public class Method {
   }
 
   /**
-   * Consumer代表了在一个输入参数上需要进行的操作
+   * Consumer代表了在一个输入参数上需要进行的操作 接收一个参数  没有返回  一个方法
    */
   private static void testConsumers() {
     Consumer<String> stringConsumer = System.out::println;
@@ -75,6 +80,7 @@ public class Method {
   }
 
   public static void main(String[] args) {
+    //其他函数式接口 http://www.runoob.com/java/java8-functional-interfaces.html
     testPredicates();
     testFunctions();
     testSuppliers();
