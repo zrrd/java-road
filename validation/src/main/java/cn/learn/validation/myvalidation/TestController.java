@@ -14,11 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class TestController {
+
   private static ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+
   @RequestMapping("/test")
-  public String test(TestMyValidation testMyValidation){
+  public String test(TestMyValidation testMyValidation) {
     Validator validator = factory.getValidator();
     validator.validate(testMyValidation);
-    return testMyValidation.getTestBlak();
+    return testMyValidation.getTestBlank();
   }
 }

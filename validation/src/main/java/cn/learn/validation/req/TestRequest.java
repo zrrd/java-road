@@ -15,9 +15,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 
 /**
- * 测试请求
- * 每个注释都能加message
- * 这些是原有的校验,还能自定义校验
+ * 测试请求 每个注释都能加message 这些是原有的校验,还能自定义校验
  *
  * @author shaoyijiong
  * @date 2018/7/5
@@ -25,6 +23,7 @@ import org.hibernate.validator.constraints.Range;
 
 @Data
 public class TestRequest {
+
   /**
    * 不为空 @Null
    */
@@ -38,7 +37,7 @@ public class TestRequest {
   String assertTrueTest;
 
   /**
-   *   数字必须大于等于指定值  @Max
+   * 数字必须大于等于指定值  @Max
    */
   @Min(10)
   int minTest;
@@ -46,7 +45,7 @@ public class TestRequest {
   /**
    * 校验数组集合长度
    */
-  @Size(min = 1,max = 10)
+  @Size(min = 1, max = 10)
   List<String> sizeTest;
 
   /**
@@ -70,11 +69,11 @@ public class TestRequest {
   /**
    * 被注释的字符串的大小必须在指定的范围内
    */
-  @Length(min = 1,max = 5)
+  @Length(min = 1, max = 5)
   String lengthTest;
 
   /**
-   *  被注释的字符串的必须非空
+   * 被注释的字符串的必须非空
    */
   @NotEmpty
   String notEmptyTest;
@@ -82,7 +81,7 @@ public class TestRequest {
   /**
    * 被注释的元素必须在合适的范围内
    */
-  @Range(min = 0,max = 2)
+  @Range(min = 0, max = 2)
   int rangeTest;
 
 }

@@ -18,7 +18,7 @@ public class FindMatcher {
    * @param line 需要匹配的字符串
    * @param pattern 正则串
    */
-  public static void matcher(String line, String pattern) {
+  private static void matcher(String line, String pattern) {
     Pattern r = Pattern.compile(pattern);
     Matcher m = r.matcher(line);
     if (m.find()) {

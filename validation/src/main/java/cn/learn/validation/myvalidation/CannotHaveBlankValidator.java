@@ -9,7 +9,7 @@ import javax.validation.ConstraintValidatorContext;
  * @author shaoyijiong
  * @date 2018/7/5
  */
-public class CannotHaveBlankValidator implements ConstraintValidator<CannotHaveBlank,String>{
+public class CannotHaveBlankValidator implements ConstraintValidator<CannotHaveBlank, String> {
 
   @Override
   public void initialize(CannotHaveBlank constraintAnnotation) {
@@ -20,11 +20,11 @@ public class CannotHaveBlankValidator implements ConstraintValidator<CannotHaveB
   public boolean isValid(String value, ConstraintValidatorContext context) {
     System.out.println("进入判断了");
     String block = " ";
-    if (value == null){
+    if (value == null) {
       context.buildConstraintViolationWithTemplate("不能为空").addConstraintViolation();
       return false;
     }
-    if (value.contains(block)){
+    if (value.contains(block)) {
       //获取默认提示信息
       String defaultConstraintMessageTemplate = context.getDefaultConstraintMessageTemplate();
       System.out.println("default message :" + defaultConstraintMessageTemplate);

@@ -17,33 +17,34 @@ import java.net.Socket;
  */
 @Component
 public class Client implements Runnable {
-    @Value("${myserver.host}")
-    private String host;
 
-    @Value("${myserver.port}")
-    private int port;
+  @Value("${myserver.host}")
+  private String host;
 
-    @Override
-    public void run() {
-        try {
-            File file = FileUtils.getFile("client.txt");
-            if (!file.exists()){
-                file.createNewFile();
-            }
-            Socket socket = new Socket(host, port);
-            byte[] bytes = new byte[1024];
-            InputStream inputStream = FileUtils.openInputStream(file);
-            int len;
-            while ((len = inputStream.read(bytes)) != -1) {
-                socket.getOutputStream().write(bytes, 0, len);
-            }
-            socket.getOutputStream().close();
-            socket.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+  @Value("${myserver.port}")
+  private int port;
 
-
+  @Override
+  public void run() {
+    try {
+      File file = FileUtils.getFile("client.txt");
+      if (!file.exists()) {
+        file.createNewFile();
+      }
+      Socket socket = new Socket(host, port);
+      byte[] bytes = new byte[1024];
+      InputStream inputStream = FileUtils.openInputStream(file);
+      int len;
+      while ((len = inputStream.read(bytes)) != -1) {
+        socket.getOutputStream().write(bytes, 0, len);
+      }
+      socket.getOutputStream().close();
+      socket.close();
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+
+
+  }
 
 }

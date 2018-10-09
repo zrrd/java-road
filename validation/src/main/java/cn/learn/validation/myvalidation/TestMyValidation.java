@@ -12,5 +12,5 @@ import lombok.Data;
 public class TestMyValidation {
 
   @CannotHaveBlank(message = "不能为空")
-  String testBlak;
+  String testBlank;
 }

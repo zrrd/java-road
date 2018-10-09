@@ -12,14 +12,16 @@ import javax.validation.Payload;
 
 /**
  * 不能有空格的校验
+ *
  * @ Constraint 通过 Constraint自定义校验注解
  */
 
-@Target({ElementType.FIELD, ElementType.METHOD, ElementType.ANNOTATION_TYPE })
+@Target({ElementType.FIELD, ElementType.METHOD, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Constraint(validatedBy = {CannotHaveBlankValidator.class})
 public @interface CannotHaveBlank {
+
   //默认错误消息
   String message() default "不能包含空格";
 
