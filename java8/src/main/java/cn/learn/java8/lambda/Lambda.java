@@ -2,6 +2,7 @@ package cn.learn.java8.lambda;
 
 import com.google.common.collect.ImmutableList;
 import java.util.List;
+import java.util.function.Function;
 
 /**
  * Lambda 表达式匿名函数 将行为传给函数 ()->{}  ()里面放参数 {}这个里面放方法体  Java 8 函数式编程风格性能低
@@ -56,6 +57,17 @@ public class Lambda {
 
     // java8之后  Runnable @FunctionalInterface 有这个注解 说明它只有一个要实现的方法
     new Thread(() -> System.out.println("java8这样做")).start();
+
+    /**
+     * lambda访问权限
+     */
+    int a = 0;
+    Function<Integer, String> toString = integer -> {
+      //在lambda中的临时变量默认是final的不能改变引用,但是在lambda中修改成员变量与静态变量(传入当前对象,修改当前对象的值)
+      //a = 2;
+      return String.valueOf(integer);
+    };
+
   }
 
 }

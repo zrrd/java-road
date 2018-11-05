@@ -1,9 +1,11 @@
 package cn.learn.java8.lambda;
 
+import com.google.common.collect.ImmutableList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -15,16 +17,14 @@ import java.util.stream.IntStream;
  */
 public class Stream {
 
-
+  @SuppressWarnings("unused")
   public static void main(String[] args) {
     Integer[] a = new Integer[]{3, 1, 2, 4, 6, 5};
     System.out.println(Arrays.stream(a).max(Integer::compareTo).orElse(null));
 
     Arrays.stream(a).forEach(System.out::print);
-    System.out.println();
 
-    String[] strings = new String[]{"a","b","c","a","ok"};
-    List<String> list = Arrays.asList(strings);
+    List<String> list = ImmutableList.of("a", "b", "c", "a", "ok");
 
     //通过流去重
     List list1 = list.stream().distinct().collect(Collectors.toList());
@@ -49,16 +49,26 @@ public class Stream {
     //flatMap也是将Stream进行转换，flatMap与map的区别在于
     //flatMap是将一个Stream中的每个值都转成一个个Stream，然后再将这些流扁平化成为一个Stream。
     //["Hello","World"] -> ["H","e","l", "o","W","r","d"] 将嵌套类型扁平化
-    List list6 = list.stream().map(c -> c.split("")).flatMap(Arrays::stream).collect(Collectors.toList());
+    List list6 = list.stream().map(c -> c.split("")).flatMap(Arrays::stream)
+        .collect(Collectors.toList());
     System.out.println(list6);
 
     //排序  随便一个排序
-    List list7 = list.stream().sorted((d,e)-> -(d.hashCode() - e.hashCode())+10).collect(Collectors.toList());
+    List list7 = list.stream().sorted((d, e) -> -(d.hashCode() - e.hashCode()) + 10)
+        .collect(Collectors.toList());
     System.out.println(list7);
 
     //对每个对象执行提供的action操作
-    List list8 = list.stream().peek(f -> System.out.println(f + "peek")).collect(Collectors.toList());
+    List list8 = list.stream().peek(f -> System.out.println(f + "peek"))
+        .collect(Collectors.toList());
     System.out.println(list8);
+
+    //判断流中所有元素都用a开头 类似的还有 anyMatch 有一个匹配 nonMatch 没有匹配
+    boolean allMatch = list.stream().allMatch(g -> g.startsWith("a"));
+
+    //a#b#c#a#okok 该操作是一个终结操作，它能够通过某一个方法，对元素进行削减操作。该操作的结果会放在一个Optional变量里返回。
+    Optional<String> reduce = list.stream().reduce((h1, h2) -> h1 + "#" + h2);
+    reduce.ifPresent(System.out::print);
 
     //聚合 max min count
     System.out.println(list.stream().max(Comparator.naturalOrder()).orElse(""));
@@ -73,9 +83,9 @@ public class Stream {
     System.out.println(list.stream().noneMatch("pp"::equals));
 
     //list转map
-    String asrtextall = "1.你好;3.撒旦;56.介绍";
+    String text = "1.你好;3.撒旦;56.介绍";
     //toMap  key 映射 value映射
-    Map<String, String> map = Arrays.stream(asrtextall.split(";"))
+    Map<String, String> map = Arrays.stream(text.split(";"))
         .collect(Collectors.toMap(b -> b.split("\\.")[0], b -> b.split("\\.")[1]));
     System.out.println(map);
 
@@ -85,7 +95,6 @@ public class Stream {
     IntStream.range(1, 4).forEach(System.out::println);
 
     //收集函数
-
 
     //分区函数 分成长度大于2的 和长度小于2的
     Map<Boolean, List<String>> collect1 = list.stream()
