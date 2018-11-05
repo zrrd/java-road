@@ -19,7 +19,10 @@ public class MapMethod {
       map.putIfAbsent(i, "val" + i);
     }
 
-    //存在key value变成计算后的结果 返回value  否则返回null
+    //替换所有key的value
+    map.replaceAll((key, value) -> key + 1 + value);
+
+    //存在key value变成计算后的结果 返回value  否则返回null  存在才调用
     map.computeIfPresent(3, (key, val) -> val + key);
     map.get(3);     // val33
 
@@ -27,7 +30,7 @@ public class MapMethod {
     map.computeIfPresent(9, (key, val) -> null);
     map.containsKey(9);     // false
 
-    //原来不存在 新建一个key value 注意参数只有key
+    //原来不存在 新建一个key value 注意参数只有key  不存在才调用
     map.computeIfAbsent(23, key -> "val" + key);
     map.containsKey(23);     // true
 
@@ -50,5 +53,9 @@ public class MapMethod {
 
     map.merge(9, "concat", (value, newValue) -> value.concat(newValue));
     map.get(9);             // val9concat
+
+    //判断是否存在该值 否则返回默认值
+    map.getOrDefault(3, "a");
+
   }
 }
