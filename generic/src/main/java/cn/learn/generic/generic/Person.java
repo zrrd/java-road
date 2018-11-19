@@ -3,18 +3,18 @@ package cn.learn.generic.generic;
 /*通过静态工厂实例化一个类   而不是通过构造方法    缺点：如果类不含public和protect的构造方法将不能被继承*/
 
 /**
- * @author jiudao
+ * @author shaoyijiong
  */
 public class Person {
 
   private String firstName;
   private String lastName;
 
-  public Person() {
+  Person() {
 
   }
 
-  public Person(String firstName, String lastName) {
+  Person(String firstName, String lastName) {
     this.firstName = firstName;
     this.lastName = lastName;
   }

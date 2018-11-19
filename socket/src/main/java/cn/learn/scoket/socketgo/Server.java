@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.apache.commons.io.FileUtils;
@@ -46,7 +47,7 @@ public class Server implements Runnable {
             int len;
             System.out.println("写入文件");
             while ((len = inputStream.read(bytes)) != -1) {
-              sb.append(new String(bytes, 0, len, "UTF-8"));
+              sb.append(new String(bytes, 0, len, StandardCharsets.UTF_8));
               FileUtils.writeStringToFile(file, sb.toString(), "UTF-8", true);
             }
             System.out.println(sb);

@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author jiudao 泛型只是编译时使用的  在运行时吧<>中的信息 擦除 泛型变成固定类型
+ * 泛型只是编译时使用的  在运行时吧<>中的信息 擦除 泛型变成固定类型
+ *
+ * @author shaoyijiong
  */
-
+@SuppressWarnings("unused")
 public class GenericTest4 {
 
-  List<?> unknowlist;
+  List<?> unknowList;
   List<? extends Number> unknowNumberList;
 
   public void genericIns() {

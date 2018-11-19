@@ -9,12 +9,12 @@ import lombok.Data;
  * @date 2018/7/23
  */
 @Data
-public class Pet{
+class Pet{
 
   private String type;
   private String name;
 
-  public Pet(String type, String name) {
+  Pet(String type, String name) {
     this.type = type;
     this.name = name;
   }

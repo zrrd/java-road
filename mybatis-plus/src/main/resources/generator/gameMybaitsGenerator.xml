@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="DB2Tables"    targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="false"/>
+        </commentGenerator>
+        <!--数据库链接地址账号密码-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/games"
+                        userId="root"
+                        password="liuxiaoming_123" >
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!--生成Model类存放位置-->
+        <javaModelGenerator targetPackage="cn.learn.mybatis_plus.model" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--生成映射文件存放位置-->
+        <sqlMapGenerator targetPackage="mapping" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!--生成Dao类存放位置-->
+        <!-- 客户端代码，生成易于使用的针对Model对象和XML配置文件 的代码
+                type="ANNOTATEDMAPPER",生成Java Model 和基于注解的Mapper对象
+                type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象
+                type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口
+        -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.learn.mybatis_plus.application.steamParty.domain.mapper.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!--生成对应表及类名-->
+        <table tableName="game"
+               domainObjectName="Game">
+            <!--<columnOverride column="call_result_response" javaType="Integer" jdbcType="TINYINT"></columnOverride>
+          <columnOverride column="call_status" javaType="Integer" jdbcType="TINYINT"></columnOverride>
+          <columnOverride column="call_result_response" javaType="Integer" jdbcType="TINYINT"></columnOverride>-->
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+        <table tableName="steam"
+               domainObjectName="Steam">
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+        <table tableName="user"
+               domainObjectName="User">
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+    </context>
+</generatorConfiguration>

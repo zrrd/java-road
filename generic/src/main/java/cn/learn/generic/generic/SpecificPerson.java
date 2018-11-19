@@ -2,7 +2,7 @@ package cn.learn.generic.generic;
 
 
 /**
- * @author jiudao
+ * @author shaoyijiong
  */
 public class SpecificPerson extends Person {
 

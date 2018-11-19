@@ -16,7 +16,7 @@ public class OtherTest {
 
     String name;
 
-    public Pet(String name) {
+    Pet(String name) {
       this.name = name;
     }
   }
@@ -27,7 +27,7 @@ public class OtherTest {
 
     String jiao;
 
-    public Dog(String name, String jiao) {
+    Dog(String name, String jiao) {
       super(name);
       this.jiao = jiao;
     }
@@ -39,7 +39,7 @@ public class OtherTest {
 
     String zhua;
 
-    public Cat(String name, String zhua) {
+    Cat(String name, String zhua) {
       super(name);
       this.zhua = zhua;
     }

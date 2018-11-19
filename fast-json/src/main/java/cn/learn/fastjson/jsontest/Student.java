@@ -10,7 +10,7 @@ import lombok.Data;
  * @date 2018/7/23
  */
 @Data
-public class Student {
+class Student {
 
 
 
@@ -19,7 +19,7 @@ public class Student {
   private List<String> hobby;
   private Pet pet;
 
-  public Student(String name, Integer age, List<String> hobby, Pet pet) {
+  Student(String name, Integer age, List<String> hobby, Pet pet) {
     this.name = name;
     this.age = age;
     this.hobby = hobby;

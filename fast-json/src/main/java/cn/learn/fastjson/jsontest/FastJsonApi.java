@@ -6,11 +6,12 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 阿里fastjson api 学习.
+ * 阿里fast-json api 学习.
  *
  * @author shaoyijiong
  * @date 2018/7/23
  */
+@SuppressWarnings("unused")
 public class FastJsonApi {
 
   private static final String JSON_STRING = "{'name':'hhh','age':18,'hobby':['game','read','food'],"
@@ -20,7 +21,7 @@ public class FastJsonApi {
 
   public static void main(String[] args) {
     String[] hobby = {"game", "read", "food"};
-    Student student = new Student("aa",18, Arrays.asList(hobby),new Pet("cat","JACK"));
+    Student student = new Student("aa", 18, Arrays.asList(hobby), new Pet("cat", "JACK"));
 
     //对象转JSON 字符串
     String jsonString = JSONObject.toJSONString(student);
