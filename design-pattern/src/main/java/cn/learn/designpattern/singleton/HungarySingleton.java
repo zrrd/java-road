@@ -1,4 +1,4 @@
-package cn.learn.design_pattern.singleton;
+package cn.learn.designpattern.singleton;
 
 /**
  * 饿汉式单例

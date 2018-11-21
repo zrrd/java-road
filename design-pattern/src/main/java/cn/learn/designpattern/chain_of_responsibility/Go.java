@@ -1,4 +1,4 @@
-package cn.learn.design_pattern.chain_of_responsibility;
+package cn.learn.designpattern.chain_of_responsibility;
 
 /**
  * @author 邵益炯

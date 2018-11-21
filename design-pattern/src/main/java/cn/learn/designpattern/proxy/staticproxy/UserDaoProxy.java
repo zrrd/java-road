@@ -1,8 +1,8 @@
-package cn.learn.design_pattern.proxy.staticproxy;
+package cn.learn.designpattern.proxy.staticproxy;
 
-import cn.learn.design_pattern.model.User;
-import cn.learn.design_pattern.proxy.dao.UserDao;
-import cn.learn.design_pattern.proxy.dao.UserDaoImpl;
+import cn.learn.designpattern.model.User;
+import cn.learn.designpattern.proxy.dao.UserDao;
+import cn.learn.designpattern.proxy.dao.UserDaoImpl;
 
 /**
  * UserDao代理类

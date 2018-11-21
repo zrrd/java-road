@@ -1,6 +1,6 @@
-package cn.learn.design_pattern.proxy.dao;
+package cn.learn.designpattern.proxy.dao;
 
-import cn.learn.design_pattern.model.User;
+import cn.learn.designpattern.model.User;
 
 /**
  * @author shaoyijiong

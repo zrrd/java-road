@@ -1,8 +1,8 @@
-package cn.learn.design_pattern.proxy.dynamicproxy;
+package cn.learn.designpattern.proxy.dynamicproxy;
 
-import cn.learn.design_pattern.model.User;
-import cn.learn.design_pattern.proxy.dao.UserDao;
-import cn.learn.design_pattern.proxy.dao.UserDaoImpl;
+import cn.learn.designpattern.model.User;
+import cn.learn.designpattern.proxy.dao.UserDao;
+import cn.learn.designpattern.proxy.dao.UserDaoImpl;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

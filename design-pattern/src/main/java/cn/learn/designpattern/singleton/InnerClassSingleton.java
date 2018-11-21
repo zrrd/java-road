@@ -1,4 +1,4 @@
-package cn.learn.design_pattern.singleton;
+package cn.learn.designpattern.singleton;
 
 /**
  * 静态内部类

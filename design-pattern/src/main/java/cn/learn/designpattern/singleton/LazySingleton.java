@@ -1,4 +1,4 @@
-package cn.learn.design_pattern.singleton;
+package cn.learn.designpattern.singleton;
 
 /**
  * 懒汉式单例 线程不安全

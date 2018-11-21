@@ -1,4 +1,4 @@
-package cn.learn.design_pattern.singleton;
+package cn.learn.designpattern.singleton;
 
 /**
  * 枚举单例(不太好  可读性差)

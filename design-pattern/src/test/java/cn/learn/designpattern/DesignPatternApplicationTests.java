@@ -1,4 +1,4 @@
-package cn.learn.design_pattern;
+package cn.learn.designpattern;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

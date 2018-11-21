@@ -1,4 +1,4 @@
-package cn.learn.design_pattern.model;
+package cn.learn.designpattern.model;
 
 import lombok.Data;
 

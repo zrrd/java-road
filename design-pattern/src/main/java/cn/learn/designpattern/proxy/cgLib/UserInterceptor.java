@@ -1,7 +1,7 @@
-package cn.learn.design_pattern.proxy.cgLib;
+package cn.learn.designpattern.proxy.cgLib;
 
 
-import cn.learn.design_pattern.model.User;
+import cn.learn.designpattern.model.User;
 import java.lang.reflect.Method;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;

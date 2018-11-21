@@ -1,4 +1,4 @@
-package cn.learn.design_pattern.chain_of_responsibility;
+package cn.learn.designpattern.chain_of_responsibility;
 
 import java.util.ArrayList;
 import java.util.List;
