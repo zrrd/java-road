@@ -30,8 +30,8 @@ public class LocalDateTimeTest {
     int day = localDateTime.getDayOfMonth();
     int seconds = localDateTime.getSecond();
     System.out.println("Month: " + month
-        +"day: " + day
-        +"seconds: " + seconds
+        + "day: " + day
+        + "seconds: " + seconds
     );
 
     //有许多静态方法来创建时间

@@ -1,4 +1,4 @@
-package cn.learn.fastjson.jsontest;
+package cn.learn.utils.fastjson;
 
 import lombok.Data;
 

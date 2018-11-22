@@ -1,4 +1,4 @@
-package cn.learn.fastjson.jsontest;
+package cn.learn.utils.fastjson;
 
 import com.alibaba.fastjson.JSONObject;
 import java.util.Arrays;
