@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class StringsTest {
 
-  @SuppressWarnings("all")
+  @SuppressWarnings("unused")
   private static void joinerTest() {
     //跳空
     Joiner joiner = Joiner.on(";").skipNulls();
@@ -41,7 +41,6 @@ public class StringsTest {
   // 编码替代 StandardCharsets
 
 
-  @SuppressWarnings("all")
   private static void caseFormatTest() {
     //大小写转换
 /*    LOWER_CAMEL	lowerCamel
@@ -53,6 +52,7 @@ public class StringsTest {
         .to(CaseFormat.LOWER_CAMEL, "CONSTANT_NAME"); // returns "constantName"
   }
 
+  @SuppressWarnings("ResultOfMethodCallIgnored")
   private static void stringsTest() {
     Strings.isNullOrEmpty("a");
     //各种StringUtils用到的类
