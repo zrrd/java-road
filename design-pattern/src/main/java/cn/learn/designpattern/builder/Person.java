@@ -22,6 +22,7 @@ public class Person {
 
   @Data
   public static class PersonBuilder {
+
     private Integer age;
     private String sex;
     private String firstName;
@@ -29,13 +30,15 @@ public class Person {
     private String education;
     private Double height;
 
-    public PersonBuilder buildAge(Integer age) {
-      this.age = age;
-      return this;
+    /**
+     * 必要的参数可以在构造函数中传入
+     */
+    public PersonBuilder(String sex) {
+      this.sex = sex;
     }
 
-    public PersonBuilder buildSex(String sex) {
-      this.sex = sex;
+    public PersonBuilder buildAge(Integer age) {
+      this.age = age;
       return this;
     }
 
@@ -58,6 +61,7 @@ public class Person {
       this.height = height;
       return this;
     }
+
 
     public Person build() {
       Person person = new Person();

@@ -9,7 +9,7 @@ import cn.learn.designpattern.builder.Person.PersonBuilder;
 public class TestBuild {
 
   public static void main(String[] args) {
-    Person person = new PersonBuilder().buildAge(12).buildLastName("aa").build();
+    Person person = new PersonBuilder("man").buildAge(12).buildLastName("aa").build();
     System.out.println(person);
   }
 }
