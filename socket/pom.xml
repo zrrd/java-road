@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>cn.learn</groupId>
-	<artifactId>scoket</artifactId>
+	<artifactId>socket</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>scoket</name>
+	<name>socket</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
