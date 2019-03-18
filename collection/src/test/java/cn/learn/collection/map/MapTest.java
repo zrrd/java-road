@@ -73,7 +73,7 @@ public class MapTest {
     map1.computeIfAbsent("b", k -> new ArrayList<>()).add("c");
     System.out.println(map1);
 
-    //computeIfPresent 如果key存在计算后放入 返回key对应的数据
+    //computeIfPresent 如果key存在计算后放入 返回计算后的值
     List<String> b = map1.computeIfPresent("b", (k, v) -> {
       ArrayList<String> list = new ArrayList<>();
       list.add("l1");
