@@ -40,9 +40,9 @@ public class MapTest {
 
   @Test
   public void weakHashMapTest() {
-    String w1 = new String("one");
-    String w2 = new String("two");
-    String w3 = new String("three");
+    String w1 = "one";
+    String w2 = "two";
+    String w3 = "three";
 
     Map<String, String> weakHashMap = new WeakHashMap<>();
     weakHashMap.put(w3, "w3");
