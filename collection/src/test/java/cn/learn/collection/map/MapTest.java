@@ -1,7 +1,9 @@
 package cn.learn.collection.map;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.NavigableSet;
@@ -54,5 +56,37 @@ public class MapTest {
 
     System.out.println(weakHashMap.containsKey("one"));
 
+  }
+
+  @Test
+  public void mapMethod() {
+    Map<String, String> map = new HashMap<>();
+    map.put("a", "a");
+
+    //putIfAbsent 如过key不存在就放入 返回的是已存在的key对应的value 如果 key不存在返回null
+    String a = map.putIfAbsent("a", "b");
+    System.out.println(a);
+
+    //computeIfAbsent 如果key不存在就计算后放入 返回的key对应的数据 List<String>
+    //一般用于map中嵌套集合的初始化
+    Map<String, List<String>> map1 = new HashMap<>();
+    map1.computeIfAbsent("b", k -> new ArrayList<>()).add("c");
+    System.out.println(map1);
+
+    //computeIfPresent 如果key存在计算后放入 返回key对应的数据
+    List<String> b = map1.computeIfPresent("b", (k, v) -> {
+      ArrayList<String> list = new ArrayList<>();
+      list.add("l1");
+      list.add("l2");
+      return list;
+    });
+    System.out.println(b + " --- " + map1);
+
+    //不管key是否存在
+    map1.compute("b", (k, v) -> new ArrayList<>());
+    System.out.println(map1);
+
+    //不存在的化返回一个默认值
+    List<String> c = map1.getOrDefault("c", new ArrayList<>());
   }
 }
