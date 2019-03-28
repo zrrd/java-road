@@ -34,15 +34,14 @@ public class FindMatcher {
   }
 
   public static void main(String[] args) {
-    Scanner in = new Scanner(System.in);
+/*    Scanner in = new Scanner(System.in);
     System.out.println("----请输出正则表达式----");
     String pattern = in.nextLine();
     System.out.printf("正则表达式为%s\n", pattern);
 
     System.out.println("----请输入要匹配的字符----");
     String line = in.nextLine();
-    System.out.printf("要匹配的字符为%s\n\n", line);
-
-    matcher(line, pattern);
+    System.out.printf("要匹配的字符为%s\n\n", line);*/
+    matcher("不需要", "^[^没有不]*有?需要");
   }
 }
