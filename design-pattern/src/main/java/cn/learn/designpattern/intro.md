@@ -4,3 +4,4 @@
 4. builder 建造者模式
 5. factory 工厂方法模式
 6. listener java 回调
+7. adapte 适配器模式
