@@ -61,6 +61,7 @@ public class TestDateformat {
    * Z	时区	RFC 822 time zone	-0800
    */
   public static String dateSimpleFormatTest(Calendar c) {
+      //一般常用的时间格式yyyyMMddHHmmss
     SimpleDateFormat sdf = new SimpleDateFormat("y k");
     if (c != null) {
       return sdf.format(c.getTime());
