@@ -88,8 +88,10 @@ public class UtilityClasses {
         .of("one", "two", "three", "six", "seven", "eight");
     Set<String> set2 = ImmutableSet.of("two", "three", "five", "seven");
 
-    //求交集
+    //求并集
     Sets.union(set1, set2);
+    //求交集
+    Sets.intersection(set1, set2);
     //求相同的元素
     Sets.intersection(set1, set2);
     //求不同的元素
