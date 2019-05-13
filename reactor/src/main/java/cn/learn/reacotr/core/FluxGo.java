@@ -32,7 +32,8 @@ public class FluxGo {
     //创建包含从 start 起始的 count 个数量的 Integer 对象的序列。
     Flux.range(1, 10).subscribe(System.out::println);
     //创建一个包含了从 0 开始递增的 Long 对象的序列。其中包含的元素按照指定的间隔来发布。除了间隔时间之外，还可以指定起始元素发布之前的延迟时间。
-    Flux.interval(Duration.of(10, ChronoUnit.SECONDS)).subscribe(System.out::println);
+    Flux.interval(Duration.of(2, ChronoUnit.SECONDS)).subscribe(System.out::println);
+    Flux.interval(Duration.ofSeconds(1),Duration.ofSeconds(3)).subscribe(System.out::println);
   }
 
   /**
@@ -76,8 +77,9 @@ public class FluxGo {
     }).subscribe(System.out::println);
   }
 
-  public static void main(String[] args) {
-    create2();
+  public static void main(String[] args) throws InterruptedException {
+    create1();
+    Thread.sleep(100000000);
   }
 
 }

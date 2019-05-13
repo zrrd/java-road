@@ -24,6 +24,8 @@ public class MonoGo {
     Mono.fromSupplier(() -> "Hello").subscribe(System.out::println);
     Mono.justOrEmpty(Optional.of("Hello")).subscribe(System.out::println);
     Mono.create(sink -> sink.success("Hello")).subscribe(System.out::println);
+    //创建一个异常消息
+    Mono.error(new RuntimeException());
   }
 
 }

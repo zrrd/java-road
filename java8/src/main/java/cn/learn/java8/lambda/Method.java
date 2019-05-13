@@ -3,6 +3,7 @@ package cn.learn.java8.lambda;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -77,6 +78,12 @@ public class Method {
     Comparator<String> stringComparator = (s1, s2) -> s2.hashCode() - s1.hashCode();
     System.out.println(stringComparator.compare("a", "b"));
     System.out.println(stringComparator.reversed().compare("a", "b"));
+  }
+
+  private static void BiFunctionTest() {
+    //对应第一个参数 第二给参数 返回值
+    BiFunction<Integer, String, String> biFunction = (o, o2) -> o + o2;
+    String a = biFunction.apply(1, "a");
   }
 
   public static void main(String[] args) {
