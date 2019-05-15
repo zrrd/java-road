@@ -23,6 +23,7 @@ public class FluxGo {
     Flux.just("Hello", "World").subscribe(System.out::println);
     //可以从一个数组、Iterable 对象或 Stream 对象中创建 Flux 对象。
     Flux.fromArray(new Integer[]{1, 2, 3}).subscribe(System.out::println);
+    Flux.fromIterable(new ArrayList<>());
     //创建一个不包含任何元素，只发布结束消息的序列。
     Flux.empty().subscribe(System.out::println);
     //创建一个只包含错误消息的序列。
