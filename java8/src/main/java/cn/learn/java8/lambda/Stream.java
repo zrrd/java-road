@@ -102,5 +102,22 @@ public class Stream {
     //根据字符串长度分组
     Map<Integer, List<String>> collect2 = list.stream()
         .collect(Collectors.groupingBy(String::length));
+
+    //Collectors
+    //toList()    将元素收集到一个 List 中。
+    //toSet()   将元素收集到一个 Set 中。
+    //toCollection(Supplier<Collection>)    将元素收集到一个特定类型的 Collection 中。
+    //toMap(Function<T, K>, Function<T, V>)   将元素收集到一个 Map 中，依据提供的映射函数将元素转换为键值。
+    //summingInt(ToIntFunction<T>)    计算将提供的 int 值映射函数应用于每个元素（以及 long 和 double 版本）的结果的总和。
+    //summarizingInt(ToIntFunction<T>)    计算将提供的 int 值映射函数应用于每个元素（以及 long 和 double 版本）的结果的 sum、min、max、count 和 average。
+    //reducing()    向元素应用缩减（通常用作下游收集器，比如用于 groupingBy）（各种版本）。
+    //partitioningBy(Predicate<T>)    将元素分为两组：为其保留了提供的预期的组和未保留预期的组。
+    //partitioningBy(Predicate<T>, Collector)   将元素分区，使用指定的下游收集器处理每个分区。
+    //groupingBy(Function<T,U>)   将元素分组到一个 Map 中，其中的键是所提供的应用于流元素的函数，值是共享该键的元素列表。
+    //groupingBy(Function<T,U>, Collector)    将元素分组，使用指定的下游收集器来处理与每个组有关联的值。
+    //minBy(BinaryOperator<T>)    计算元素的最小值（与 maxBy() 相同）。
+    //mapping(Function<T,U>, Collector)   将提供的映射函数应用于每个元素，并使用指定的下游收集器（通常用作下游收集器本身，比如用于 groupingBy）进行处理。
+    //joining()     假设元素为 String 类型，将这些元素联结到一个字符串中（或许使用分隔符、前缀和后缀）。
+    //counting()    计算元素数量。（通常用作下游收集器。）
   }
 }

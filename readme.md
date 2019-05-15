@@ -12,7 +12,7 @@
 * reactor             java 反应式编程
 * reflection          反射
 * regex               java正则表达式
-* servlet             网络
+* servlet             网络    
 * socket              socket网络编程
 * utils               常用工具类的使用(guava fast-json apache.commons)
 * validation          校验框架 自定义校验
