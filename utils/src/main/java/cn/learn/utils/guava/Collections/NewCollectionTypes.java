@@ -9,6 +9,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.MultimapBuilder;
 import com.google.common.collect.Multiset;
+import com.google.common.collect.Multisets;
 import com.google.common.collect.MutableClassToInstanceMap;
 import com.google.common.collect.Range;
 import com.google.common.collect.RangeSet;
@@ -25,12 +26,18 @@ import java.util.List;
 @SuppressWarnings("all")
 public class NewCollectionTypes {
 
+
+  /**
+   * 统计元素数量
+   */
   private static void multisetTest() {
     //运行重复不保证顺序
     //统计字符串在数组中出现的次数 相当于很多桶 每个桶存放了很多相同类型的元素
     ImmutableList<String> strings = ImmutableList.of("a", "b", "c", "d", "a", "c", "d", "d");
     Multiset<String> wordsMultiset = HashMultiset.create();
     wordsMultiset.addAll(strings);
+    //往集合中加入10个a
+    wordsMultiset.add("a", 10);
     for (String key : wordsMultiset.elementSet()) {
       System.out.println(key + " count：" + wordsMultiset.count(key));
     }
@@ -46,6 +53,20 @@ public class NewCollectionTypes {
 　　　　retainAll(Collection c) : 保留出现在给定集合参数的所有的元素
 　　　　removeAll(Collectionc) : 去除出现给给定集合参数的所有的元素
 */
+
+    Multiset<String> multiset1 = HashMultiset.create();
+    multiset1.add("a", 2);
+
+    Multiset<String> multiset2 = HashMultiset.create();
+    multiset2.add("a", 5);
+
+    multiset1.containsAll(multiset2); //返回true；因为包含了所有不重复元素，
+    //虽然multiset1实际上包含2个"a"，而multiset2包含5个"a"
+    Multisets.containsOccurrences(multiset1, multiset2); // returns false
+
+    multiset2.remove(multiset1); // multiset2 现在包含3个"a"
+    multiset2.removeAll(multiset1);//multiset2移除所有"a"，虽然multiset1只有2个"a"
+    multiset2.isEmpty(); // returns true
   }
 
   private static void multimapTest() {
@@ -60,6 +81,9 @@ public class NewCollectionTypes {
     System.out.println(list);
   }
 
+  /**
+   * k 和 v 都是不能重复的
+   */
   private static void biMapTest() {
     //k v 是唯一不能重复的
     BiMap<String, Integer> biMap = HashBiMap.create();
@@ -68,14 +92,23 @@ public class NewCollectionTypes {
 
   }
 
+  /**
+   * 两个key对应一个值
+   */
   private static void tableTest() {
     Table<Integer, Integer, Double> weightedGraph = HashBasedTable.create();
     //行 列
     weightedGraph.put(1, 2, 4.1);
     weightedGraph.put(1, 3, 20.2);
     weightedGraph.put(2, 2, 52.5);
+
+    //获取值的方式
+    Double aDouble = weightedGraph.get(1, 2);
   }
 
+  /**
+   * key为类的特殊map
+   */
   private static void classToInstanceMapTest() {
     ClassToInstanceMap classToInstanceMap = MutableClassToInstanceMap.create();
     classToInstanceMap.put(Integer.class, 0);
@@ -83,6 +116,9 @@ public class NewCollectionTypes {
     System.out.println(classToInstanceMap.size());
   }
 
+  /**
+   * 区间类型
+   */
   private static void rangeSetTest() {
     RangeSet<Integer> rangeSet = TreeRangeSet.create();
     rangeSet.add(Range.closed(1, 10)); // {[1, 10]}

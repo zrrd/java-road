@@ -43,11 +43,11 @@ public class StringsTest {
 
   private static void caseFormatTest() {
     //大小写转换
-/*    LOWER_CAMEL	lowerCamel
-    LOWER_HYPHEN	lower-hyphen
-    LOWER_UNDERSCORE	lower_underscore
-    UPPER_CAMEL	UpperCamel
-    UPPER_UNDERSCORE	UPPER_UNDERSCORE*/
+/*  LOWER CAMEL lowerCamel
+    LOWER HYPHEN lower-hyphen
+    LOWER UNDERSCORE lower underscore
+    UPPER CAMEL UpperCamel
+    UPPER UNDERSCORE UPPER UNDERSCORE*/
     CaseFormat.UPPER_UNDERSCORE
         .to(CaseFormat.LOWER_CAMEL, "CONSTANT_NAME"); // returns "constantName"
   }
@@ -56,6 +56,23 @@ public class StringsTest {
   private static void stringsTest() {
     Strings.isNullOrEmpty("a");
     //各种StringUtils用到的类
+  }
+
+
+  /**
+   * TODO
+   */
+  private static void charMatcherTest() {
+    String string = "a";
+    //移除control字符
+    String noControl = CharMatcher.javaIsoControl().removeFrom(string);
+    //只保留数字字符
+    String theDigits = CharMatcher.inRange('0', '9').retainFrom(string);
+    String spaced = CharMatcher.whitespace().trimAndCollapseFrom(string, ' ');
+//去除两端的空格，并把中间的连续空格替换成单个空格
+    String noDigits = CharMatcher.any().replaceFrom(string, "*"); //用*号替换所有数字
+   // String lowerAndDigit = CharMatcher.any().or(CharMatcher.JAVA_LOWER_CASE).retainFrom(string);
+// 只保留数字和小写字母
   }
 
   public static void main(String[] args) {

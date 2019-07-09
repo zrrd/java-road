@@ -1,4 +1,4 @@
-package cn.learn.utils.guava.BasicUtilities;
+package cn.learn.utils.guava.basicutilities;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Ordering;

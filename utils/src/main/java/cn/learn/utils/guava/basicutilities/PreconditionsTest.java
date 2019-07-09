@@ -1,11 +1,11 @@
-package cn.learn.utils.guava.BasicUtilities;
+package cn.learn.utils.guava.basicutilities;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import java.util.ArrayList;
 
 /**
- * 处理参数
+ * 前置条件 处理参数
  *
  * @author 邵益炯
  * @date 2018/9/28

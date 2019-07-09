@@ -8,9 +8,12 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.common.primitives.Ints;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 /**
  * 集合工具类
@@ -31,7 +34,7 @@ public class UtilityClasses {
         Ints.asList(4, 5, 6));
     //返回a出现的次数
     Iterables.frequency(list1, "a");
-    //拿第一个  否则拿默认值
+    //拿第一个  为空 否则拿默认值
     Iterables.getFirst(list1, "a");
     Iterables.getLast(list1, "a");
     //Iterables.all();Iterables.any() 全部存在  或者存在一个 返回ture或false
@@ -40,6 +43,9 @@ public class UtilityClasses {
     Iterables.elementsEqual(list1, ImmutableList.of("a", "v", "c", "d"));
     //返回前i个元素
     Iterables.limit(list1, 2);
+
+    //指定大小分隔
+    Iterables.partition(list1, 2);
 
     //与Collection相似的方法
     Iterables.addAll(list1, list2);
@@ -79,6 +85,8 @@ public class UtilityClasses {
     //每个加个'a'
     Lists.transform(list1, s -> s + "a");
 
+    //按照指定大小分隔
+    Lists.partition(list1, 10);
     //与Collection相似的方法与上面的相同
   }
 
@@ -113,11 +121,34 @@ public class UtilityClasses {
     Sets.newLinkedHashSetWithExpectedSize(2);
   }
 
+  @Data
+  @AllArgsConstructor
+  static class TestBean {
+
+    private Integer id;
+    private String name;
+
+
+
+    public static List<TestBean> testBaenArray() {
+      TestBean a = new TestBean(1,"a");
+      TestBean b = new TestBean(2,"b");
+      TestBean c = new TestBean(3,"c");
+      TestBean d = new TestBean(4,"d");
+      List<TestBean> list = new ArrayList<>();
+      list.add(a);
+      list.add(b);
+      list.add(c);
+      list.add(d);
+      return list;
+    }
+  }
+
   @SuppressWarnings("all")
   private static void mapsTest() {
-    List<String> strings = ImmutableList.of("a", "b", "c");
+    //List<String> strings = ImmutableList.of("a", "b", "c");
     //可以通过长度查询对应的单词  注意泛型的顺序
-    ImmutableMap<Integer, String> stringsByIndex = Maps.uniqueIndex(strings, String::length);
+    //ImmutableMap<Integer, String> stringsByIndex = Maps.uniqueIndex(strings, String::length);
 
     Map<String, Integer> map1 = ImmutableMap.of("a", 1, "b", 2, "c", 3);
     Map<String, Integer> map2 = ImmutableMap.of("b", 2, "c", 4, "d", 5);
@@ -130,6 +161,14 @@ public class UtilityClasses {
     Maps.difference(map1, map2).entriesOnlyOnLeft(); // {"a" => 1}
     //返回其键位于右侧但不在左侧映射中的条目。
     Maps.difference(map1, map2).entriesOnlyOnRight(); // {"d" => 5}
+
+    List<TestBean> list = TestBean.testBaenArray();
+    //把id作为key 对象作为value
+    ImmutableMap<Integer, TestBean> map = Maps
+        .uniqueIndex(list, TestBean::getId);
+
+
+
   }
 
   private static void multisetsTest() {
@@ -137,6 +176,6 @@ public class UtilityClasses {
   }
 
   public static void main(String[] args) {
-    setsTest();
+    mapsTest();
   }
 }
