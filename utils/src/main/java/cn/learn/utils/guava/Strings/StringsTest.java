@@ -64,18 +64,25 @@ public class StringsTest {
    */
   private static void charMatcherTest() {
     String string = "a";
+
+    //第一个匹配字符 第二个是操作
+
+
+
     //移除control字符
     String noControl = CharMatcher.javaIsoControl().removeFrom(string);
     //只保留数字字符
     String theDigits = CharMatcher.inRange('0', '9').retainFrom(string);
+    //去除两端的空格，并把中间的连续空格替换成单个空格
     String spaced = CharMatcher.whitespace().trimAndCollapseFrom(string, ' ');
-//去除两端的空格，并把中间的连续空格替换成单个空格
-    String noDigits = CharMatcher.any().replaceFrom(string, "*"); //用*号替换所有数字
-   // String lowerAndDigit = CharMatcher.any().or(CharMatcher.JAVA_LOWER_CASE).retainFrom(string);
-// 只保留数字和小写字母
+    //用*号替换所有
+    String noDigits = CharMatcher.any().replaceFrom("a", "*");
+
+    // 只保留数字和小写字母
+   String lowerAndDigit = CharMatcher.inRange('0','9').retainFrom("112aa");
   }
 
   public static void main(String[] args) {
-    stringsTest();
+    charMatcherTest();
   }
 }
