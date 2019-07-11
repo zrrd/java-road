@@ -3,3 +3,9 @@
 * Strings         字符串相关工具类
 * cache           缓存
 * current         并发
+* enumUtils       枚举工具类
+* event           事件总线
+* hash            哈希
+* io              流
+* math            运算
+* reflect         反射

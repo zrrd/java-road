@@ -1,15 +1,21 @@
 package cn.learn.utils.guava.math;
 
+import com.google.common.math.DoubleMath;
 import com.google.common.math.IntMath;
 import java.math.RoundingMode;
 
 /**
+ * https://wizardforcel.gitbooks.io/guava-tutorial/content/28.html
+ *
  * @author shaoyijiong
  * @date 2019/7/10
  */
 public class MathTest {
 
   private static void intMathTest() {
+
+    //IntMath     LongMath     BigIntegerMath
+
     // throws ArithmeticException
 
     //加
@@ -43,7 +49,16 @@ public class MathTest {
 
     //二项式系数*
 
+    //判断该浮点数是不是一个整数
+    DoubleMath.isMathematicalInteger(1.2);
 
-
+    //舍入为Int
+    DoubleMath.roundToInt(1.2, RoundingMode.UP);
+    //舍入为Long
+    DoubleMath.roundToLong(1.3, RoundingMode.UP);
+    //舍入为BigInteger
+    DoubleMath.roundToBigInteger(1.3, RoundingMode.UP);
+    //2的浮点对数，并且舍入为int，比JDK的Math.log(double) 更快
+    DoubleMath.log2(1.2, RoundingMode.UP);
   }
 }
