@@ -10,6 +10,7 @@
 * jvm                 java虚拟机
 * mybatis-plus        mybatis-plus插件
 * reactor             java 反应式编程
+* reference           java 的4种引用类型
 * reflection          反射
 * regex               java正则表达式
 * servlet             网络    

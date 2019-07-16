@@ -28,6 +28,7 @@
     <module>validation</module>
     <module>servlet</module>
     <module>reactor</module>
+    <module>reference</module>
   </modules>
 
   <build>

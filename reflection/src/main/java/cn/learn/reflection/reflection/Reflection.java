@@ -12,6 +12,7 @@ import java.lang.reflect.Modifier;
  * @author 邵益炯
  */
 public class Reflection {
+
   @SuppressWarnings({"unchecked","unused"})
   public static void animal()
       throws ClassNotFoundException, IllegalAccessException, InstantiationException, InvocationTargetException, NoSuchMethodException {
