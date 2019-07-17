@@ -33,6 +33,10 @@ public class ReferenceGo {
    * 一旦SoftReference保存了对一个Java对象的软引用后，在垃圾线程对这个Java对象回收前，
    * SoftReference类所提供的get()方法返回Java对象的强引用。一旦垃圾线程回收该Java对象之后，get()方法将返回null。
    * </pre>
+   * <pre>
+   * 使用场景
+   * 网页缓存 图片缓存 Android中可以用来做缓存
+   * </pre>
    */
   private static void softReferenceTest() {
     // 初始化软引用
@@ -54,6 +58,11 @@ public class ReferenceGo {
    * 不管系统堆空间是否足够，都会将对象进行回收。
    * 在java中，可以用java.lang.ref.WeakReference实例来保存对一个Java对象的弱引用。
    * </pre>
+   * <pre>
+   * 使用场景
+   * 1. threadLocalMap 中key 指向的threadLocal对象
+   * 2. WeakHashMap  也可以用来做缓存 缓存大对象 如Image
+   * </pre>
    */
   private static void weakReferenceTest() {
     String obj = new String("Hello World");
@@ -66,8 +75,13 @@ public class ReferenceGo {
 
 
   /**
-   * 虚引用是所有类型中最弱的一个。一个持有虚引用的对象，和没有引用几乎是一样的，随时可能被垃圾回收器回收。当试图通过虚引用的get()方法取得强引用时，总是会失败。并且，虚引用必须和引用队列一起使用，它的作用在于跟踪垃圾回收过程。
-   * 当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在垃圾回收后，销毁这个对象，将这个虚引用加入引用队列。程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。
+   * <pre>
+   * 虚引用是所有类型中最弱的一个。一个持有虚引用的对象，和没有引用几乎是一样的，随时可能被垃圾回收器回收。
+   * 当试图通过虚引用的get()方法取得强引用时，总是会失败。并且，虚引用必须和引用队列一起使用，它的作用在于跟踪垃圾回收过程。
+   * 当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在垃圾回收后，销毁这个对象，
+   * 将这个虚引用加入引用队列。程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。
+   * 如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。
+   * </pre>
    */
   public void referenceQueueTest() {
     String obj = new String("Hello World");
