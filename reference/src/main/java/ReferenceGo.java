@@ -28,8 +28,11 @@ public class ReferenceGo {
   }
 
   /**
-   * 软引用 SoftReference的特点是它的一个实例保存对一个Java对象的软引用， 该软引用的存在不妨碍垃圾收集线程对该Java对象的回收。也就是说，一旦SoftReference保存了对一个Java对象的软引用后，在垃圾线程对
-   * 这个Java对象回收前，SoftReference类所提供的get()方法返回Java对象的强引用。一旦垃圾线程回收该Java对象之后，get()方法将返回null。
+   * <pre>
+   * 软引用 SoftReference的特点是它的一个实例保存对一个Java对象的软引用， 该软引用的存在不妨碍垃圾收集线程对该Java对象的回收。也就是说，
+   * 一旦SoftReference保存了对一个Java对象的软引用后，在垃圾线程对这个Java对象回收前，
+   * SoftReference类所提供的get()方法返回Java对象的强引用。一旦垃圾线程回收该Java对象之后，get()方法将返回null。
+   * </pre>
    */
   private static void softReferenceTest() {
     // 初始化软引用
@@ -46,11 +49,15 @@ public class ReferenceGo {
   }
 
   /**
-   * 弱引用是一种比软引用较弱的引用类型。在系统GC时，只要发现弱引用，不管系统堆空间是否足够，都会将对象进行回收。 在java中，可以用java.lang.ref.WeakReference实例来保存对一个Java对象的弱引用。
+   * <pre>
+   * 弱引用是一种比软引用较弱的引用类型。在系统GC时，只要发现弱引用，
+   * 不管系统堆空间是否足够，都会将对象进行回收。
+   * 在java中，可以用java.lang.ref.WeakReference实例来保存对一个Java对象的弱引用。
+   * </pre>
    */
-  public static void weakReferenceTest() {
+  private static void weakReferenceTest() {
     String obj = new String("Hello World");
-    WeakReference sf = new WeakReference(obj);
+    WeakReference sf = new WeakReference<>(obj);
     obj = null;
     System.out.println("是否被回收" + sf.get());
     System.gc();
