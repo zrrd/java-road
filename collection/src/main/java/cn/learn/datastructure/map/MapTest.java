@@ -71,8 +71,7 @@ public class MapTest {
   }
 
   /**
-   * 它保留插入的顺序，如果需要输出的顺序和输入时的相同,那么就选用 LinkedHashMap。
-   * 迭代的时候保留顺序
+   * 它保留插入的顺序，如果需要输出的顺序和输入时的相同,那么就选用 LinkedHashMap。 迭代的时候保留顺序
    */
   public static void linkHashMapTest() {
     LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<>();

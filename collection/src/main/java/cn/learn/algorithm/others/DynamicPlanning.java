@@ -32,22 +32,21 @@ public class DynamicPlanning {
   }
 
   //2.备忘录算法：时间复杂度n
-  private static int plan2(int count, Map<Integer,Integer> map) {
-    if (count<1){
+  private static int plan2(int count, Map<Integer, Integer> map) {
+    if (count < 1) {
       return 0;
     }
-    if (count<=2){
+    if (count <= 2) {
       return count;
     }
-    if(map.containsKey(count)){
+    if (map.containsKey(count)) {
       return map.get(count);
-    }else {
-      int value=plan2(count-1,map)+plan2(count-2,map);
-      map.put(count,value);
+    } else {
+      int value = plan2(count - 1, map) + plan2(count - 2, map);
+      map.put(count, value);
       return value;
     }
   }
-
 
 
   public static void main(String[] args) {

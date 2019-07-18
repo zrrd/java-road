@@ -9,3 +9,11 @@ offer，add区别：
    
 peek，element区别：
 > element() 和 peek() 用于在队列的头部查询元素。与 remove() 方法类似，在队列为空时， element() 抛出一个异常，而 peek() 返回 null
+
+
+对于 阻塞队列BlockingQueue
+put(e)  offer(e, time, unit)
+> put 队列慢会阻塞当前线程  offer超时返回
+
+take()	poll(time, unit)
+> take 队列为空会阻塞当前线程 poll超时返回  
