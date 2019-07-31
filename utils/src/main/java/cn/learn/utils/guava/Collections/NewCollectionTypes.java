@@ -13,6 +13,7 @@ import com.google.common.collect.Multisets;
 import com.google.common.collect.MutableClassToInstanceMap;
 import com.google.common.collect.Range;
 import com.google.common.collect.RangeSet;
+import com.google.common.collect.SetMultimap;
 import com.google.common.collect.Table;
 import com.google.common.collect.TreeRangeSet;
 import java.util.List;
@@ -79,6 +80,7 @@ public class NewCollectionTypes {
     multimap.put("a", 2);
     List<Integer> list = multimap.get("a");
     System.out.println(list);
+    SetMultimap<Object, Object> build = MultimapBuilder.hashKeys().hashSetValues().build();
   }
 
   /**

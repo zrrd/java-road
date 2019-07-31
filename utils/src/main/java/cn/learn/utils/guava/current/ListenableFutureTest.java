@@ -9,7 +9,6 @@ import java.util.concurrent.Executors;
 import lombok.Data;
 import org.apache.commons.lang3.RandomUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.springframework.util.ClassUtils;
 
 /**
  * 使用ListenableFuture来代替JDK的 Future
@@ -44,8 +43,7 @@ public class ListenableFutureTest {
   public void test1() {
 
     //创建线程池
-    ListeningExecutorService service = MoreExecutors
-        .listeningDecorator(Executors.newFixedThreadPool(10));
+    ListeningExecutorService service = MoreExecutors.listeningDecorator(Executors.newFixedThreadPool(10));
     ListenableFuture<Explosion> explosion = service.submit(this::pushBigRedButton);
 
     Futures.addCallback(explosion, new FutureCallback<Explosion>() {

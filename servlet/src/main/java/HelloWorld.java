@@ -23,9 +23,7 @@ public class HelloWorld extends HttpServlet {
   }
 
   @Override
-  public void doGet(HttpServletRequest request,
-      HttpServletResponse response)
-      throws IOException {
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     //request 相关
 
     //拿到参数  如果中文的话需要转码

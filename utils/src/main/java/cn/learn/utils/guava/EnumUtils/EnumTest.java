@@ -10,12 +10,17 @@ import java.lang.reflect.Field;
  */
 public class EnumTest {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IllegalAccessException {
     //通过枚举名获得枚举
     Sex w = Enums.getIfPresent(Sex.class, "MAN").orNull();
     System.out.println(w);
-    Field field = Enums.getField(Sex.MAN);
-    Converter<String, Sex> stringSexConverter = Enums.stringConverter(Sex.class);
 
+    Field field = Enums.getField(Sex.MAN);
+    System.out.println(field);
+
+    // 枚举值 与 枚举名的转化器
+    Converter<String, Sex> stringSexConverter = Enums.stringConverter(Sex.class);
+    System.out.println(stringSexConverter.convert("MAN"));
+    System.out.println(stringSexConverter.reverse().convert(Sex.MAN));
   }
 }

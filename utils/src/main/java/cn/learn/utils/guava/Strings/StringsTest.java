@@ -43,13 +43,12 @@ public class StringsTest {
 
   private static void caseFormatTest() {
     //大小写转换
-/*  LOWER CAMEL lowerCamel
-    LOWER HYPHEN lower-hyphen
-    LOWER UNDERSCORE lower underscore
-    UPPER CAMEL UpperCamel
-    UPPER UNDERSCORE UPPER UNDERSCORE*/
-    CaseFormat.UPPER_UNDERSCORE
-        .to(CaseFormat.LOWER_CAMEL, "CONSTANT_NAME"); // returns "constantName"
+    //LOWER CAMEL lowerCamel 小写驼峰
+    //LOWER HYPHEN lower-hyphen 小写连接符
+    //LOWER UNDERSCORE lower_underscore 小写下划线
+    //UPPER CAMEL UpperCamel 大写驼峰
+    //UPPER UNDERSCORE UPPER_UNDERSCORE 大写下划线
+    CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, "CONSTANT_NAME"); // returns "constantName"
   }
 
   @SuppressWarnings("ResultOfMethodCallIgnored")
@@ -67,8 +66,6 @@ public class StringsTest {
 
     //第一个匹配字符 第二个是操作
 
-
-
     //移除control字符
     String noControl = CharMatcher.javaIsoControl().removeFrom(string);
     //只保留数字字符
@@ -79,7 +76,7 @@ public class StringsTest {
     String noDigits = CharMatcher.any().replaceFrom("a", "*");
 
     // 只保留数字和小写字母
-   String lowerAndDigit = CharMatcher.inRange('0','9').retainFrom("112aa");
+    String lowerAndDigit = CharMatcher.inRange('0', '9').retainFrom("112aa");
   }
 
   public static void main(String[] args) {

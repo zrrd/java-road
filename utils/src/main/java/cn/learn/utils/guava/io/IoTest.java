@@ -3,6 +3,7 @@ package cn.learn.utils.guava.io;
 import com.google.common.io.ByteSink;
 import com.google.common.io.ByteSource;
 import com.google.common.io.ByteStreams;
+import com.google.common.io.CharSink;
 import com.google.common.io.CharSource;
 import com.google.common.io.CharStreams;
 import com.google.common.io.FileWriteMode;
@@ -76,9 +77,7 @@ public class IoTest {
 
     //用来创建与文件有关的流
     ByteSource byteSource = Files.asByteSource(new File("D:\\a.txt"));
-
     ByteSink byteSink = Files.asByteSink(new File("D:\\a.txt"), FileWriteMode.APPEND);
-
     ByteSource byteSource1 = Resources.asByteSource(new URL(""));
     byte[] a = new byte[1];
     ByteSource.wrap(a);
@@ -107,7 +106,7 @@ public class IoTest {
   private static void charSourceTest() throws Exception {
 
     CharSource charSource = Files.asCharSource(new File(""), Charset.forName("utf-8"));
-    Files.asCharSink(new File(""), Charset.forName("utf-8"), FileWriteMode.APPEND);
+    CharSink charSink = Files.asCharSink(new File(""), Charset.forName("utf-8"), FileWriteMode.APPEND);
     //.... 其他操作与字节源大同小异 https://wizardforcel.gitbooks.io/guava-tutorial/content/25.html
   }
 

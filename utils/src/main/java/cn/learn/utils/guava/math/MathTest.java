@@ -50,7 +50,7 @@ public class MathTest {
     //二项式系数*
 
     //判断该浮点数是不是一个整数
-    DoubleMath.isMathematicalInteger(1.2);
+    boolean mathematicalInteger = DoubleMath.isMathematicalInteger(1.2);
 
     //舍入为Int
     DoubleMath.roundToInt(1.2, RoundingMode.UP);
