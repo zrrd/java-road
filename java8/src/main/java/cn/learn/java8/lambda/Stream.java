@@ -68,6 +68,8 @@ public class Stream {
 
     //a#b#c#a#okok 该操作是一个终结操作，它能够通过某一个方法，对元素进行削减操作。该操作的结果会放在一个Optional变量里返回。
     Optional<String> reduce = list.stream().reduce((h1, h2) -> h1 + "#" + h2);
+    // start#a#b#c#a#okok 添加初始值
+    String reduce1 = list.stream().reduce("start", (h1, h2) -> h1 + "#" + h2);
     reduce.ifPresent(System.out::print);
 
     //聚合 max min count
