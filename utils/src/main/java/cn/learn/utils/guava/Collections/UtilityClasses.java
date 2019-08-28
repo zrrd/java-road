@@ -129,12 +129,11 @@ public class UtilityClasses {
     private String name;
 
 
-
     public static List<TestBean> testBaenArray() {
-      TestBean a = new TestBean(1,"a");
-      TestBean b = new TestBean(2,"b");
-      TestBean c = new TestBean(3,"c");
-      TestBean d = new TestBean(4,"d");
+      TestBean a = new TestBean(1, "a");
+      TestBean b = new TestBean(2, "b");
+      TestBean c = new TestBean(3, "c");
+      TestBean d = new TestBean(4, "d");
       List<TestBean> list = new ArrayList<>();
       list.add(a);
       list.add(b);
@@ -166,7 +165,6 @@ public class UtilityClasses {
     //把id作为key 对象作为value
     ImmutableMap<Integer, TestBean> map = Maps
         .uniqueIndex(list, TestBean::getId);
-
 
 
   }
