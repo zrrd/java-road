@@ -41,6 +41,7 @@ public class StringsTest {
   // 编码替代 StandardCharsets
 
 
+
   private static void caseFormatTest() {
     //大小写转换
     //LOWER CAMEL lowerCamel 小写驼峰
@@ -48,7 +49,7 @@ public class StringsTest {
     //LOWER UNDERSCORE lower_underscore 小写下划线
     //UPPER CAMEL UpperCamel 大写驼峰
     //UPPER UNDERSCORE UPPER_UNDERSCORE 大写下划线
-    CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, "CONSTANT_NAME"); // returns "constantName"
+    CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, "get_sex"); // returns "constantName"
   }
 
   @SuppressWarnings("ResultOfMethodCallIgnored")
@@ -80,6 +81,6 @@ public class StringsTest {
   }
 
   public static void main(String[] args) {
-    charMatcherTest();
+    caseFormatTest();
   }
 }

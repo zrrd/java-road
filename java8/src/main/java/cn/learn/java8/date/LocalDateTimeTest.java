@@ -6,7 +6,7 @@ import java.time.LocalTime;
 import java.time.Month;
 
 /**
- * java日期测试
+ * java日期测试 根据系统中当前时刻和默认时区计算出年月日的信息
  *
  * @author 邵益炯
  * @date 2018/10/9
