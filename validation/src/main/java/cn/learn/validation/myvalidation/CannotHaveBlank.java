@@ -13,7 +13,7 @@ import javax.validation.Payload;
 /**
  * 不能有空格的校验
  *
- * @ Constraint 通过 Constraint自定义校验注解
+ * <p>@ Constraint 通过 Constraint自定义校验注解
  */
 
 @Target({ElementType.FIELD, ElementType.METHOD, ElementType.ANNOTATION_TYPE})

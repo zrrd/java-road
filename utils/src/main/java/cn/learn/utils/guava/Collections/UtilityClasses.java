@@ -174,6 +174,6 @@ public class UtilityClasses {
   }
 
   public static void main(String[] args) {
-    mapsTest();
+    setsTest();
   }
 }

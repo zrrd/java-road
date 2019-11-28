@@ -17,7 +17,7 @@ public class PreconditionsTest {
    */
   private static void test1() {
     //Exception in thread "main" java.lang.IllegalArgumentException
-    Preconditions.checkArgument(1 > 2);
+    //Preconditions.checkArgument(1 > 2);
     //Exception in thread "main" java.lang.IllegalArgumentException: 你错了 [a] a这个位置是用来放参数的
     Preconditions.checkArgument(1 > 2, "你错了", "a");
   }
@@ -50,10 +50,10 @@ public class PreconditionsTest {
   static class Test {
 
     public static void main(String[] args) {
-      //test1();
+      test1();
       //test2();
       //test3();
-      test4();
+      //test4();
     }
   }
 
