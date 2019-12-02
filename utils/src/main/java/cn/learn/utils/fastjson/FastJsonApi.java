@@ -11,7 +11,6 @@ import java.util.Map;
  * @author shaoyijiong
  * @date 2018/7/23
  */
-@SuppressWarnings("unused")
 public class FastJsonApi {
 
   private static final String JSON_STRING = "{'name':'hhh','age':18,'hobby':['game','read','food'],"

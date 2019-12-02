@@ -12,8 +12,6 @@ import lombok.Data;
 @Data
 class Student {
 
-
-
   private String name;
   private Integer age;
   private List<String> hobby;
