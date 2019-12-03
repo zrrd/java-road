@@ -3,8 +3,10 @@ package cn.learn.java8.date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.Date;
 
 /**
  * 格式化时间
@@ -42,5 +44,19 @@ public class DateTimeFormatterTest {
     LocalDate.parse("2017-01-01");
     //使用自定义格式解析  2017-01-01T08:08:08
     LocalDateTime.parse("2017-01-01 08:08:08", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
+    // java8中时间 与date互相转化
+    ZoneId zoneId = ZoneId.of("Asia/Shanghai");
+    final LocalDate parse = LocalDate.parse("2017-01-01");
+    final LocalDateTime parse2 = LocalDateTime.parse("2017-01-02 10:10:10",DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
+    System.out.println(Date.from(parse.atStartOfDay(zoneId).toInstant()));
+    System.out.println(Date.from(parse2.atZone(zoneId).toInstant()));
+
+
+  }
+
+  public static void main(String[] args) {
+
   }
 }
