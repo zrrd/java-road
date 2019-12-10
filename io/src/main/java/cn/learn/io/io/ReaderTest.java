@@ -16,8 +16,7 @@ public class ReaderTest {
 
   public static void main(String[] args) throws Exception {
     //字符流读取文件  编码方式  BufferedReader 读取
-    Reader reader = new InputStreamReader(
-        new FileInputStream(new File("io/src/main/read.txt")),
+    Reader reader = new InputStreamReader(new FileInputStream(new File("io/src/main/read.txt")),
         StandardCharsets.UTF_8);
 
     //将读取的存入字符数组中去
