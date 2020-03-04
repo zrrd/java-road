@@ -1,5 +1,6 @@
 package cn.learn.generic.generic;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,5 +15,11 @@ public class GenericTest3 {
     System.out.println(t.toString());
     list2.forEach(a -> System.out.println(a.toString()));
     return null;
+  }
+
+  public static void main(String[] args) {
+    GenericTest3 test3 = new GenericTest3();
+    // 泛型String 由于参数中带了泛型 所以返回值上的泛型可以擦除
+    final String a = test3.<String>testGenericMethodDefine("a", new ArrayList<>());
   }
 }

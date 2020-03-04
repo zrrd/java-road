@@ -4,7 +4,9 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.time.DateFormatUtils;
 
 /**
  * @author shaoyijong
@@ -72,7 +74,7 @@ public class TestDateFormat {
    * </pre>
    */
   public static void dateSimpleFormatTest(Calendar c) {
-    //一般常用的时间格式yyyyMMddHHmmss
+    //一般常用的时间格式yyyy-MM-dd HH:mm:ss
     SimpleDateFormat sdf = new SimpleDateFormat("y k");
     sdf.format(c.getTime());
     try {
@@ -80,5 +82,12 @@ public class TestDateFormat {
     } catch (ParseException e) {
       log.error("时间转化失败", e);
     }
+  }
+
+  /**
+   * 由于SimpleDateFormat存在线程不安全的隐患 可以使用commons-lang3 中的DateFormatUtils转化
+   */
+  public static void dataFormatUtils() {
+    DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss");
   }
 }

@@ -1,4 +1,4 @@
-package cn.learn.designpattern.chain_of_responsibility;
+package cn.learn.designpattern.chain;
 
 /**
  * 敏感词处理

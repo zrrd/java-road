@@ -5,7 +5,6 @@ package cn.learn.generic.generic;
  *
  * @author shaoyijiong
  */
-@SuppressWarnings("unused")
 public class GenericTest1<T, S extends T> {
 
   public void printThis(T t, S s) {

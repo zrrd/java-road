@@ -16,6 +16,9 @@
 * servlet             网络    
 * socket              socket网络编程
 * utils               常用工具类的使用(guava fast-json apache.commons)
+> 1) guava 
+> 2) fast-json
+> 3) apache commons
 * validation          校验框架 自定义校验
 
 

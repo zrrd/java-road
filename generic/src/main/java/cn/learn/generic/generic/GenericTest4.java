@@ -8,7 +8,6 @@ import java.util.List;
  *
  * @author shaoyijiong
  */
-@SuppressWarnings("unused")
 public class GenericTest4 {
 
   List<?> unknowList;

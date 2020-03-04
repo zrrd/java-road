@@ -35,7 +35,7 @@ public class Herb {
   /**
    * 植物通过几年生分类
    */
-  public void EnumMapTest(List<Herb> garden) {
+  public void enumMapTest(List<Herb> garden) {
     Map<Type, Set<Herb>> herbBYType = new EnumMap<>(Type.class);
     for (Type type : Type.values()) {
       /* System.out.println(type.name());

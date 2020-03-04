@@ -33,9 +33,9 @@ public class Go {
   private static void t3() {
     Integer a[] = new Integer[]{1,2,3,4,5,6,7,8,9,10};
 
-    Util.<Integer>countGreaterThan(a, new Integer(5));
+    Util.<Integer>countGreaterThan(a, 5);
 
-    Util.countGreaterThan(a, new Integer(5));
+    Util.countGreaterThan(a, 5);
 
   }
 

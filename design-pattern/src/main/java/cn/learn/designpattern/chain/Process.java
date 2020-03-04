@@ -1,4 +1,4 @@
-package cn.learn.designpattern.chain_of_responsibility;
+package cn.learn.designpattern.chain;
 
 /**
  * 责任链模式接口

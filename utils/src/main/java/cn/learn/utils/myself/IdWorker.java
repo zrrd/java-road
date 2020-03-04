@@ -18,7 +18,6 @@ import java.net.NetworkInterface;
  *
  * @author Polim
  */
-@SuppressWarnings("unused")
 public class IdWorker {
 
   /**

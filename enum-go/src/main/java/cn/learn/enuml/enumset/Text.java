@@ -21,7 +21,7 @@ public class Text {
   }
 
   /**
-   * 通过allof方法获得一个拥有所有枚举类型的EnumSet
+   * 通过allOf方法获得一个拥有所有枚举类型的EnumSet
    */
   Set<Style> enumSet = EnumSet.allOf(Style.class);
   /**

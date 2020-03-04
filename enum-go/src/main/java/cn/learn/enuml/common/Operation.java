@@ -50,7 +50,7 @@ public enum Operation {
    */
   abstract double apply(double x, double y);
 
-  public static Operation valueofsymbol(String symbol) {
+  public static Operation valueOfSymbol(String symbol) {
     for (Operation operation : Operation.values()) {
       if (operation.symbol.equals(symbol)) {
         return operation;
@@ -67,7 +67,10 @@ public enum Operation {
     System.out.println(Operation.DIVIDE);
 
     //通过自定义的方式获得枚举  将没有对应的返回null
-    System.out.println(Operation.valueofsymbol("+"));
+    System.out.println(Operation.valueOfSymbol("+"));
+
+    // 通过名字和类获取枚举
+    Enum.valueOf(Operation.class, "DIVIDE");
   }
 }
 

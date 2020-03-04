@@ -5,7 +5,6 @@ package cn.learn.generic.generic;
  *
  * @author shaoyijiong
  */
-@SuppressWarnings("unused")
 public class GenericTest2 {
 
   public <T, S extends T> S testGenericMethodDefine(T t, S s) {

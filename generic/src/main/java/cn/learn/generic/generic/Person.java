@@ -2,9 +2,12 @@ package cn.learn.generic.generic;
 
 /*通过静态工厂实例化一个类   而不是通过构造方法    缺点：如果类不含public和protect的构造方法将不能被继承*/
 
+import lombok.Data;
+
 /**
  * @author shaoyijiong
  */
+@Data
 public class Person {
 
   private String firstName;
@@ -42,12 +45,5 @@ public class Person {
     return new Person("", lastName);
   }
 
-  @Override
-  public String toString() {
-    return "Person{" +
-        "firstName='" + firstName + '\'' +
-        ", lastName='" + lastName + '\'' +
-        '}';
-  }
 }
 

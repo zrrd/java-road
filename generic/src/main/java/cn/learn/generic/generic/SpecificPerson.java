@@ -1,9 +1,14 @@
 package cn.learn.generic.generic;
 
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 /**
  * @author shaoyijiong
  */
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class SpecificPerson extends Person {
 
   private Integer age;
@@ -17,13 +22,5 @@ public class SpecificPerson extends Person {
     super(firstName, lastName);
     this.age = age;
     this.height = height;
-  }
-
-  @Override
-  public String toString() {
-    return super.toString() + "SpecificPerson{" +
-        "age=" + age +
-        ", height=" + height +
-        '}';
   }
 }

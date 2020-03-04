@@ -15,7 +15,7 @@ import java.util.Date;
  * @date 2018/10/9
  */
 public class DateTimeFormatterTest {
-  @SuppressWarnings("all")
+
   private static void testFormatter() {
     /*格式化*/
     //定义了很多原来的时间格式
@@ -48,12 +48,11 @@ public class DateTimeFormatterTest {
     // java8中时间 与date互相转化
     ZoneId zoneId = ZoneId.of("Asia/Shanghai");
     final LocalDate parse = LocalDate.parse("2017-01-01");
-    final LocalDateTime parse2 = LocalDateTime.parse("2017-01-02 10:10:10",DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+    final LocalDateTime parse2 = LocalDateTime
+        .parse("2017-01-02 10:10:10", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
     System.out.println(Date.from(parse.atStartOfDay(zoneId).toInstant()));
     System.out.println(Date.from(parse2.atZone(zoneId).toInstant()));
-
-
   }
 
   public static void main(String[] args) {
