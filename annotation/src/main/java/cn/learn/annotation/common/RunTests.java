@@ -4,13 +4,16 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import org.junit.Test;
 
+/**
+ * @author syj
+ */
 public class RunTests {
 
   public static void main(String[] arg) throws Exception {
     int tests = 0;
     int passed = 0;
     //通过反射动态的加载类
-    Class testClass = Class.forName("cn.learn.annotation.common.Sample2");
+    Class<?> testClass = Class.forName("cn.learn.annotation.common.Sample2");
     //通过反射动态的获得testClass中的方法
     for (Method m : testClass.getDeclaredMethods()) {
       //m方法是否是被@Test方法注解
@@ -34,6 +37,6 @@ public class RunTests {
       }
     }
     int failed = tests - passed;
-    System.out.println("Passed:" + passed + ",Failed:" + failed);
+    System.out.println("Test:" + tests + ",Passed:" + passed + ",Failed:" + failed);
   }
 }

@@ -8,6 +8,8 @@ import java.lang.annotation.Target;
 
 /**
  * 标记一个注解类型 自定义注解
+ *
+ * @author syj
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)

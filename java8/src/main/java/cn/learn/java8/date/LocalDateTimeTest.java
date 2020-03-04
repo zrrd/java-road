@@ -29,10 +29,7 @@ public class LocalDateTimeTest {
     Month month = localDateTime.getMonth();
     int day = localDateTime.getDayOfMonth();
     int seconds = localDateTime.getSecond();
-    System.out.println("Month: " + month
-        + "day: " + day
-        + "seconds: " + seconds
-    );
+    System.out.println("Month: " + month + "day: " + day + "seconds: " + seconds);
 
     //有许多静态方法来创建时间
     LocalDateTime date2 = localDateTime.withDayOfMonth(10).withYear(2012);
