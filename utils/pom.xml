@@ -83,6 +83,11 @@
             <artifactId>okhttp</artifactId>
             <version>3.14.7</version>
         </dependency>
+        <dependency>
+            <groupId>com.blueconic</groupId>
+            <artifactId>browscap-java</artifactId>
+            <version>1.2.14</version>
+        </dependency>
     </dependencies>
 
     <build>
