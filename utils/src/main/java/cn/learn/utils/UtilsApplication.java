@@ -3,6 +3,9 @@ package cn.learn.utils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author syj
+ */
 @SpringBootApplication
 public class UtilsApplication {
 

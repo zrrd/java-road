@@ -42,4 +42,9 @@ public class Api {
   public Resp<String> postJsonApi(@RequestBody List<String> list) {
     return Resp.success(R);
   }
+
+  @RequestMapping("d")
+  public Resp<String> simpleApi(@RequestBody List<String> list) {
+    return Resp.success(R);
+  }
 }

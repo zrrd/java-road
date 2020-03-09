@@ -3,8 +3,10 @@ package cn.learn.utils.okhttp;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
 import java.io.IOException;
+import lombok.extern.slf4j.Slf4j;
 import okhttp3.FormBody;
 import okhttp3.HttpUrl;
+import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
@@ -25,7 +27,7 @@ public class OkHttpTest {
   public static final String URI = "http://127.0.0.1:8080/";
 
   public static void main(String[] args) throws IOException {
-    new OkHttpTest().postJsonExample();
+    new OkHttpTest().interceptors();
   }
 
 
@@ -110,5 +112,40 @@ public class OkHttpTest {
     try (Response response = client.newCall(request).execute()) {
       response.body().string();
     }
+  }
+
+
+  /**
+   * <pre>
+   * 自定义一个拦截器 继承父拦截器
+   * 这里只是打印日志 , 也可以改写请求和响应
+   * </pre>
+   */
+  @Slf4j
+  static class LoggingInterceptor implements Interceptor {
+
+    @Override
+    public Response intercept(Interceptor.Chain chain) throws IOException {
+      // 获取该次请求的request
+      Request request = chain.request();
+      long t1 = System.nanoTime();
+      log.info(String.format("Sending request %s on %s%n%s", request.url(), chain.connection(), request.headers()));
+      // 实际请求response
+      Response response = chain.proceed(request);
+      long t2 = System.nanoTime();
+      log.info(String.format("Received response for %s in %.1fms%n%s", response.request().url(), (t2 - t1) / 1e6d,
+          response.headers()));
+      return response;
+    }
+  }
+
+
+  /**
+   * Interceptors
+   */
+  public void interceptors() throws IOException {
+    // 添加拦截器
+    OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new LoggingInterceptor()).build();
+    client.newCall(new Request.Builder().url(URI + "api/d").build()).execute();
   }
 }
