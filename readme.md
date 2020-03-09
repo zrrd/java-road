@@ -16,9 +16,12 @@
 * servlet             网络    
 * socket              socket网络编程
 * utils               常用工具类的使用(guava fast-json apache.commons)
-> 1) guava 
-> 2) fast-json
-> 3) apache commons
+> 1) guava            谷歌工具类 
+> 2) fast-json        阿里json解析工具类
+> 3) apache commons   apache工具类
+> 4) browscap         user-agent 解析工具类
+> 5) okhttp           请求工具类
+> 6) dns-cache        阿里dns缓存工具类(https://github.com/alibaba/java-dns-cache-manipulator/tree/master/library)
 * validation          校验框架 自定义校验
 
 
