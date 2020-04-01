@@ -14,6 +14,7 @@
 * reflection          反射
 * regex               java正则表达式
 * servlet             网络    
+* test-easy           测试工具的使用 , 测试技巧
 * socket              socket网络编程
 * utils               常用工具类的使用(guava fast-json apache.commons)
   > 1) guava            谷歌工具类 
