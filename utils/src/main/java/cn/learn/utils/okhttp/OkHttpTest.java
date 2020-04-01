@@ -3,7 +3,11 @@ package cn.learn.utils.okhttp;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
+import okhttp3.Call;
+import okhttp3.EventListener;
 import okhttp3.FormBody;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
@@ -27,7 +31,7 @@ public class OkHttpTest {
   public static final String URI = "http://127.0.0.1:8080/";
 
   public static void main(String[] args) throws IOException {
-    new OkHttpTest().interceptors();
+    new OkHttpTest().eventListener();
   }
 
 
@@ -114,6 +118,69 @@ public class OkHttpTest {
     }
   }
 
+  /**
+   * 打印请求生命周期
+   */
+  class PrintingEventListener extends EventListener {
+
+    private long callStartNanos;
+
+    private void printEvent(String name) {
+      long nowNanos = System.nanoTime();
+      if ("callStart".equals(name)) {
+        callStartNanos = nowNanos;
+      }
+      long elapsedNanos = nowNanos - callStartNanos;
+      System.out.printf("%.3f %s%n", elapsedNanos / 1000000000d, name);
+    }
+
+    @Override
+    public void callStart(Call call) {
+      printEvent("callStart");
+    }
+
+    @Override
+    public void callEnd(Call call) {
+      printEvent("callEnd");
+    }
+
+    @Override
+    public void dnsStart(Call call, String domainName) {
+      printEvent("dnsStart");
+    }
+
+    @Override
+    public void dnsEnd(Call call, String domainName, List<InetAddress> inetAddressList) {
+      printEvent("dnsEnd");
+    }
+
+    // 还有很多其他的请求 , 详见父类 EventListener
+  }
+
+  /**
+   * 一次请求的生命周期,有很多事件
+   *
+   * @link https://square.github.io/okhttp/events/
+   */
+  public void eventListener() throws IOException {
+    // 创建一个有监听器的client
+    OkHttpClient client = new OkHttpClient.Builder().eventListener(new PrintingEventListener()).build();
+    Request request = new Request.Builder()
+        .url(URI + "api/d")
+        .build();
+
+    System.out.println("REQUEST 1 (new connection)");
+    try (Response response = client.newCall(request).execute()) {
+      // Consume and discard the response body.
+      response.body().source().readByteString();
+    }
+
+    System.out.println("REQUEST 2 (pooled connection)");
+    try (Response response = client.newCall(request).execute()) {
+      // Consume and discard the response body.
+      response.body().source().readByteString();
+    }
+  }
 
   /**
    * <pre>
@@ -139,7 +206,6 @@ public class OkHttpTest {
     }
   }
 
-
   /**
    * Interceptors
    */
@@ -148,4 +214,16 @@ public class OkHttpTest {
     OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new LoggingInterceptor()).build();
     client.newCall(new Request.Builder().url(URI + "api/d").build()).execute();
   }
+
+  /**
+   * <pre>
+   *   其他功能 https://square.github.io/okhttp/recipes/
+   *   1. post 请求一个流
+   *   2. post 请求一个文件
+   *   3. post 请求multipart request
+   *   4. 响应缓存
+   *   5. 单个请求配置
+   *   6. authentication 自动验证重试
+   * </pre>
+   */
 }
