@@ -46,7 +46,7 @@ public class ArrayListTest {
     sw.stop();
 
     sw.start("通过list自带的foreach遍历");
-    list.forEach(a -> a.toString());
+    list.forEach(Object::toString);
     sw.stop();
 
     /**
