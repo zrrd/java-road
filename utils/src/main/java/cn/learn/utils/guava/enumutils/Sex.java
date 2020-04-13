@@ -1,4 +1,4 @@
-package cn.learn.utils.guava.EnumUtils;
+package cn.learn.utils.guava.enumutils;
 
 /**
  * @author shaoyijiong

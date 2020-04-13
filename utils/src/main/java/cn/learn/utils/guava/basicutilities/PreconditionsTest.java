@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * @author 邵益炯
  * @date 2018/9/28
  */
+@SuppressWarnings("ConstantConditions")
 public class PreconditionsTest {
 
   /**
@@ -42,18 +43,18 @@ public class PreconditionsTest {
    */
   private static void test4() {
     ArrayList<String> strings = Lists.newArrayList("a", "b");
-    //Preconditions.checkElementIndex(3,strings.size(),"数组越界了");
+    Preconditions.checkElementIndex(3,strings.size(),"数组越界了");
     //Preconditions.checkPositionIndex(3, strings.size(), "数组越界了");
-    Preconditions.checkPositionIndexes(2, 3, strings.size());
+    //Preconditions.checkPositionIndexes(2, 3, strings.size());
   }
 
   static class Test {
 
     public static void main(String[] args) {
-      test1();
+      //test1();
       //test2();
       //test3();
-      //test4();
+      test4();
     }
   }
 

@@ -1,4 +1,4 @@
-package cn.learn.utils.guava.EnumUtils;
+package cn.learn.utils.guava.enumutils;
 
 import com.google.common.base.Converter;
 import com.google.common.base.Enums;

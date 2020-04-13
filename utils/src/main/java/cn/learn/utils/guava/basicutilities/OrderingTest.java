@@ -24,9 +24,14 @@ public class OrderingTest {
 
   }
 
-  private static void test1() {
-    //-------   排序规则
-    //根据年龄排序 的一个相当于比较器的东西
+  private void test1() {
+    //-------   排序规则 都是可以链式使用的!!!
+    //自然排序
+    Ordering<String> stringOrdering = Ordering.natural();
+    //toString 后使用字典排序
+    final Ordering<Object> usingToString = Ordering.usingToString();
+
+    //创建自定义比较器 根据年龄排序 的一个相当于比较器的东西
     Ordering<User> userOrdering = new Ordering<User>() {
       @Override
       public int compare(User t1, User t2) {
@@ -34,14 +39,14 @@ public class OrderingTest {
       }
     };
     //空 排最前 空排最后
-    Ordering<User> userOrdering1 = userOrdering.nullsFirst().nullsLast();
+    Ordering<User> nullsFirst = userOrdering.nullsFirst().nullsLast();
     //逆序
     Ordering<User> reverse = userOrdering.reverse();
     //字典序
     Ordering<Iterable<User>> lexicographical = userOrdering.lexicographical();
+    //通过年龄比较
+    Ordering.natural().nullsFirst().onResultOf((User u1)-> u1.getAge());
 
-    //自然排序
-    Ordering<String> stringOrdering = Ordering.natural();
     ImmutableList<User> users = ImmutableList
         .of(new User(2, "a"), new User(5, "b"), new User(1, "c"), new User(9, "d"));
     stringOrdering.compare(users.get(0).getName(), users.get(1).getName());

@@ -1,9 +1,8 @@
-package cn.learn.utils.guava.Collections;
+package cn.learn.utils.guava.collections;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 

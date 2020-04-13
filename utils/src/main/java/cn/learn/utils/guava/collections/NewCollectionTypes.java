@@ -1,4 +1,4 @@
-package cn.learn.utils.guava.Collections;
+package cn.learn.utils.guava.collections;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.ClassToInstanceMap;
