@@ -17,7 +17,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.URL;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * guava io
@@ -25,6 +25,7 @@ import java.nio.charset.Charset;
  * @author shaoyijiong
  * @date 2019/7/10
  */
+@SuppressWarnings("UnstableApiUsage")
 public class IoTest {
 
 
@@ -103,10 +104,10 @@ public class IoTest {
   /**
    * 字符源
    */
-  private static void charSourceTest() throws Exception {
+  private static void charSourceTest() {
 
-    CharSource charSource = Files.asCharSource(new File(""), Charset.forName("utf-8"));
-    CharSink charSink = Files.asCharSink(new File(""), Charset.forName("utf-8"), FileWriteMode.APPEND);
+    CharSource charSource = Files.asCharSource(new File(""), StandardCharsets.UTF_8);
+    CharSink charSink = Files.asCharSink(new File(""), StandardCharsets.UTF_8, FileWriteMode.APPEND);
     //.... 其他操作与字节源大同小异 https://wizardforcel.gitbooks.io/guava-tutorial/content/25.html
   }
 
