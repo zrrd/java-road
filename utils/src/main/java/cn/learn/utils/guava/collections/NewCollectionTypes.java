@@ -15,8 +15,13 @@ import com.google.common.collect.Range;
 import com.google.common.collect.RangeSet;
 import com.google.common.collect.SetMultimap;
 import com.google.common.collect.Table;
+import com.google.common.collect.Table.Cell;
 import com.google.common.collect.TreeRangeSet;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 /**
  * Guava的新类型
@@ -29,7 +34,18 @@ public class NewCollectionTypes {
 
 
   /**
+   * <b>Multiset</b>
+   *
+   * <pre>
    * 统计元素数量
+   * 类似数据结构对应关系
+   * Map                  Corresponding Multiset  Supports null elements
+   * HashMap              HashMultiset            Yes
+   * TreeMap              TreeMultiset            Yes
+   * LinkedHashMap        LinkedHashMultiset      Yes
+   * ConcurrentHashMap    ConcurrentHashMultiset  No
+   * ImmutableMap         ImmutableMultiset       No
+   * </pre>
    */
   private static void multisetTest() {
     //运行重复不保证顺序
@@ -42,7 +58,8 @@ public class NewCollectionTypes {
     for (String key : wordsMultiset.elementSet()) {
       System.out.println(key + " count：" + wordsMultiset.count(key));
     }
-  /*　　　　add(E element) :向其中添加单个元素
+    // api
+    /* add(E element) :向其中添加单个元素
 　　　　add(E element,int occurrences) : 向其中添加指定个数的元素
 　　　　count(Object element) : 返回给定参数元素的个数
 　　　　remove(E element) : 移除一个元素，其count值 会响应减少
@@ -52,8 +69,7 @@ public class NewCollectionTypes {
 　　　　setCount(E element ,int count): 设定某一个元素的重复次数
 　　　　setCount(E element,int oldCount,int newCount): 将符合原有重复个数的元素修改为新的重复次数
 　　　　retainAll(Collection c) : 保留出现在给定集合参数的所有的元素
-　　　　removeAll(Collectionc) : 去除出现给给定集合参数的所有的元素
-*/
+　　　　removeAll(Collectionc) : 去除出现给给定集合参数的所有的元素 */
 
     Multiset<String> multiset1 = HashMultiset.create();
     multiset1.add("a", 2);
@@ -70,20 +86,33 @@ public class NewCollectionTypes {
     multiset2.isEmpty(); // returns true
   }
 
+  /**
+   * <b>Multimap</b>
+   *
+   * <pre>
+   * 用于处理 Map&lt;K, List&lt;V>> Map&lt;K, Set&lt;V>> 之类的结构
+   * key 可以选择hashkeys linkhashkeys treekeys 等多种key的结构
+   * value也可以选择多种value结构
+   * </pre>
+   */
   private static void multimapTest() {
-    //用于处理 Map<K, List<V>> Map<K, Set<V>> 之类的结构
-    //key 可以选择hashkeys linkhashkeys treekeys 等多种key的结构
-    //value也可以选择多种value结构
+
     ListMultimap<String, Integer> multimap =
         MultimapBuilder.hashKeys().arrayListValues().build();
     multimap.put("a", 1);
     multimap.put("a", 2);
     List<Integer> list = multimap.get("a");
+    // 视图展示
+    final Map<String, Collection<Integer>> stringCollectionMap = multimap.asMap();
+    final Collection<Entry<String, Integer>> entries = multimap.entries();
     System.out.println(list);
     SetMultimap<Object, Object> build = MultimapBuilder.hashKeys().hashSetValues().build();
   }
 
   /**
+   * <b>BiMap</b>
+   *
+   * <p>
    * k 和 v 都是不能重复的
    */
   private static void biMapTest() {
@@ -95,7 +124,17 @@ public class NewCollectionTypes {
   }
 
   /**
+   *
+   *
+   * <b>Table</b>
+   *
+   * <p>
    * 两个key对应一个值
+   * <li>HashBasedTable</li>
+   * <li>TreeBasedTable</li>
+   * <li>ImmutableTable</li>
+   * <li>ArrayTable 通过二维数组的方式存放类似redis中的ziplist</li>
+   *
    */
   private static void tableTest() {
     Table<Integer, Integer, Double> weightedGraph = HashBasedTable.create();
@@ -103,12 +142,21 @@ public class NewCollectionTypes {
     weightedGraph.put(1, 2, 4.1);
     weightedGraph.put(1, 3, 20.2);
     weightedGraph.put(2, 2, 52.5);
-
     //获取值的方式
     Double aDouble = weightedGraph.get(1, 2);
+    // 转为普通map
+    final Map<Integer, Map<Integer, Double>> integerMapMap = weightedGraph.rowMap();
+    // 拿到第几号的值
+    final Map<Integer, Double> row = weightedGraph.row(1);
+    // 类似map的entry拿到某行 某列对应的值
+    final Set<Cell<Integer, Integer, Double>> cells = weightedGraph.cellSet();
+
   }
 
   /**
+   * <b>ClassToInstanceMap</b>
+   *
+   * <p>
    * key为类的特殊map
    */
   private static void classToInstanceMapTest() {
@@ -119,6 +167,9 @@ public class NewCollectionTypes {
   }
 
   /**
+   * <b>RangeSet</b>
+   *
+   * <p>
    * 区间类型
    */
   private static void rangeSetTest() {

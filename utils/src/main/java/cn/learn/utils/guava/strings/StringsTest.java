@@ -1,4 +1,4 @@
-package cn.learn.utils.guava.Strings;
+package cn.learn.utils.guava.strings;
 
 import com.google.common.base.CaseFormat;
 import com.google.common.base.CharMatcher;
@@ -15,7 +15,6 @@ import java.util.List;
  */
 public class StringsTest {
 
-  @SuppressWarnings("unused")
   private static void joinerTest() {
     //跳空
     Joiner joiner = Joiner.on(";").skipNulls();
@@ -24,22 +23,20 @@ public class StringsTest {
     String s = joiner2.join("aq", null, "dsa", "ds");
   }
 
-  @SuppressWarnings("all")
   private static void splitterTest() {
     //自动省略空字符串
-    Iterable t1 = Splitter.on(",").omitEmptyStrings().split(",a,,b,");
+    Iterable<String> t1 = Splitter.on(",").omitEmptyStrings().split(",a,,b,");
     //裁剪空格
-    Iterable t2 = Splitter.on(",").trimResults().split("a, b, c, d");
+    Iterable<String> t2 = Splitter.on(",").trimResults().split("a, b, c, d");
     //裁剪_
-    Iterable t3 = Splitter.on(",").trimResults(CharMatcher.is('_')).split("_a ,_b_ ,c__");
+    Iterable<String> t3 = Splitter.on(",").trimResults(CharMatcher.is('_')).split("_a ,_b_ ,c__");
     //只分隔前两个
-    Iterable t4 = Splitter.on(";").limit(3).split("a;b;c;d");
+    Iterable<String> t4 = Splitter.on(";").limit(3).split("a;b;c;d");
     //转列表
-    List t5 = Splitter.on(",").limit(2).splitToList("a,b,c,d");
+    List<String> t5 = Splitter.on(",").limit(2).splitToList("a,b,c,d");
   }
 
   // 编码替代 StandardCharsets
-
 
 
   private static void caseFormatTest() {

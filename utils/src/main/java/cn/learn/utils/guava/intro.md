@@ -1,11 +1,11 @@
-* #### BasicUtilities  排序、比较、参数校验的方法类
+* #### basicutilities  排序、比较、参数校验的方法类
 > ComparisonChain 链式比较 比较优雅
 > Ordering 排序器 封装了很多默认的排序方法
 > Preconditions 参数校验
 
 * #### cache           缓存(待完成)
 
-* #### Collections     集合相关的工具类
+* #### collections     集合相关的工具类
 > ###### 不可变类  
 > ###### 新的集合类 
 > * Multiset(无序可重复,并且能够统计重复数) 

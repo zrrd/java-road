@@ -1,5 +1,6 @@
 package cn.learn.utils.guava.io;
 
+import com.google.common.graph.Traverser;
 import com.google.common.io.ByteSink;
 import com.google.common.io.ByteSource;
 import com.google.common.io.ByteStreams;
@@ -20,7 +21,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 /**
- * guava io
+ * guava io https://github.com/google/guava/wiki/IOExplained
  *
  * @author shaoyijiong
  * @date 2019/7/10
@@ -121,9 +122,10 @@ public class IoTest {
 
     //返回去除了扩展名的文件名
     Files.getNameWithoutExtension("");
+    final Traverser<File> fileTraverser = Files.fileTraverser();
   }
 
   public static void main(String[] args) throws Exception {
-    charStreamsTest();
+    filesTest();
   }
 }

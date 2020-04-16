@@ -45,8 +45,7 @@ public class OrderingTest {
     //字典序
     Ordering<Iterable<User>> lexicographical = userOrdering.lexicographical();
     //通过年龄比较
-    Ordering.natural().nullsFirst().onResultOf((User u1)-> u1.getAge());
-
+    Ordering.natural().nullsFirst().onResultOf((User u1) -> u1.getAge());
     ImmutableList<User> users = ImmutableList
         .of(new User(2, "a"), new User(5, "b"), new User(1, "c"), new User(9, "d"));
     stringOrdering.compare(users.get(0).getName(), users.get(1).getName());
@@ -55,12 +54,16 @@ public class OrderingTest {
 
     //取排序后的前两个
     List<User> users1 = userOrdering.greatestOf(users, 2);
-    //判断是顺序的
+    //判断集合是否有序顺序的
     boolean ordered = userOrdering.isOrdered(users);
-    //返回一个拷贝的副本
+    //返回一个有序的拷贝的副本
     List<User> users2 = userOrdering.sortedCopy(users);
-    //找最小 最大
+    // 集合找最小 最大
     userOrdering.min(users);
     userOrdering.max(users);
+    // 比较两个的大小
+    userOrdering.min(new User(1, "1"), new User(2, "2"));
+    userOrdering.max(new User(1, "1"), new User(2, "2"));
+
   }
 }
