@@ -28,6 +28,7 @@ public class ReactiveProgramming101 {
   public static void main(String[] args) {
     Flux<Book> pipeline =
         getMostExpensiveBooksByCategoryReactive(Flux.just(InMemoryDataSource.BOOKS));
+    // 打印对象
     pipeline = pipeline.doOnNext(System.out::print);
     System.out.println("什么都不会发生 , 直到pipeline开始");
     pipeline.subscribe();
