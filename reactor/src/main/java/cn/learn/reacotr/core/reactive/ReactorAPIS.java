@@ -43,13 +43,6 @@ public class ReactorAPIS {
     var justMono = Mono.just(1);
   }
 
-  private static void blockMono(String varName, Mono<?> mono) {
-    mono.doOnSubscribe(s -> System.out.print(varName + ": "))
-        .doOnNext(e -> System.out.println(e + ", "))
-        // 会阻塞 直到管道中所有都消费 , 所以有一个返回值
-        // 不推荐 , 违背 reactor 的初衷
-        .block();
-  }
 
   private static void createMonoAsync() {
     // 自己定义管道运行的线程
@@ -69,9 +62,19 @@ public class ReactorAPIS {
   public static void useThenForFlow() {
     var thenMono = Mono.just("world").map(n -> "hello " + n).doOnNext(System.out::println)
         // 通过 then api 表示一个管道处理完了 , 返回一个结果 , 或者处理另外一个管道
+        // 不要通过表面逻辑来定义管道的执行顺序 , 要通过 then , 因为两个管道可能运行在不同线程里面
         .thenReturn("do something else");
     blockMono("thenMono", thenMono);
   }
+
+  public static void monoFluxInterchange() {
+    var monoToFlux = Mono.just(1).flux();
+    subscribeFlux("monoToFlux", monoToFlux);
+    // 把管道中所有对象收集 => collection
+    var fluxToMono = Flux.just(1, 2, 3).collectList();
+    blockMono("fluxToMono", fluxToMono);
+  }
+
 
   private static void mapVsFlatMap() {
     var mapFlux = Flux.just(1, 2, 3).map(i -> "id #" + i);
@@ -90,7 +93,50 @@ public class ReactorAPIS {
         .subscribe();
   }
 
+
+  /**
+   * 场景 : 从不同地方获取用户信息 , 并且组装起来
+   */
+  private static void zipMonoOrFlux() {
+    var userId = "max";
+    var monoProfile = Mono.just(userId + "的详细信息");
+    var monoLastOrder = Mono.just(userId + "的最新订单");
+    var monoLastReview = Mono.just(userId + "的最新评论");
+    // 等待3个管道都生产完 收集起来变成一个对象
+    var zipMono = Mono.zip(monoProfile, monoLastOrder, monoLastReview)
+        .doOnNext(t -> System.out.printf("%s的主页 %s %s%n", t.getT1(), t.getT2(), t.getT3()));
+    blockMono("zipMono", zipMono);
+  }
+
+  /**
+   * 处理异常 两种模式等价 , 比较推荐下一种
+   */
+  private static void errorHandling() {
+    var throwExceptionFlux = Flux.range(1, 10).map(i -> {
+      if (i > 5) {
+        throw new RuntimeException("something wrong");
+      }
+      return "item #" + i;
+    });
+    subscribeFlux("throwExceptionFlux", throwExceptionFlux);
+    var errorFlux = Flux.range(1, 10).flatMap(i -> {
+      if (i > 5) {
+        return Mono.error(new RuntimeException("something wrong"));
+      }
+      return Mono.just("item #" + i);
+    });
+    subscribeFlux("errorFlux", errorFlux);
+  }
+
+  private static void blockMono(String varName, Mono<?> mono) {
+    mono.doOnSubscribe(s -> System.out.print(varName + ": "))
+        .doOnNext(e -> System.out.println(e + ", "))
+        // 会阻塞 直到管道中所有都消费 , 所以有一个返回值
+        // 不推荐 , 违背 reactor 的初衷
+        .block();
+  }
+
   public static void main(String[] args) {
-    useThenForFlow();
+    errorHandling();
   }
 }
