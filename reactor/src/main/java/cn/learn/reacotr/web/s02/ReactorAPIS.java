@@ -1,4 +1,4 @@
-package cn.learn.reacotr.core.reactive;
+package cn.learn.reacotr.web.s02;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -13,6 +13,7 @@ import reactor.core.scheduler.Schedulers;
  * @author shaoyijiong
  * @date 2020/6/17
  */
+@SuppressWarnings("all")
 public class ReactorAPIS {
 
   public static void createFluxFromExistingData() {

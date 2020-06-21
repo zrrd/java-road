@@ -7,6 +7,7 @@ import org.springframework.util.StopWatch;
 
 /**
  * 使用java8中的forEach遍历接口
+ *
  * @author 邵益炯
  */
 public class ForEach {
@@ -18,7 +19,7 @@ public class ForEach {
 
     sw.start("通过entrySet遍历");
     for (Map.Entry<String, Integer> entry : map.entrySet()) {
-      System.out.println(entry.getKey()+entry.getValue());
+      System.out.println(entry.getKey() + entry.getValue());
     }
     sw.stop();
 
@@ -26,20 +27,20 @@ public class ForEach {
     Iterator<Map.Entry<String, Integer>> iterator = map.entrySet().iterator();
     while (iterator.hasNext()) {
       Map.Entry<String, Integer> entry = iterator.next();
-      System.out.println(entry.getKey()+entry.getValue());
+      System.out.println(entry.getKey() + entry.getValue());
     }
     sw.stop();
 
     sw.start("遍历keySet 通过key 取值");
     for (String key : map.keySet()) {
       Integer value = map.get(key);
-      System.out.println(key+value);
+      System.out.println(key + value);
     }
     sw.stop();
 
     sw.start("foreach+lambda表达式遍历");
     map.forEach((k, v) -> {
-      System.out.println(k+v);
+      System.out.println(k + v);
     });
     sw.stop();
 
