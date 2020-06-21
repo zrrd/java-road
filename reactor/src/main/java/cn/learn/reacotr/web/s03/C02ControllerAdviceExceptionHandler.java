@@ -14,8 +14,8 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
-import org.springframework.web.servlet.NoHandlerFoundException;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+/*import org.springframework.web.servlet.NoHandlerFoundException;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;*/
 
 
 /**
@@ -27,7 +27,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
  * @date 2020/6/21
  */
 @ControllerAdvice
-public class C02ControllerAdviceExceptionHandler extends ResponseEntityExceptionHandler {
+//public class C02ControllerAdviceExceptionHandler extends ResponseEntityExceptionHandler {
+public class C02ControllerAdviceExceptionHandler {
 
   @RequiredArgsConstructor
   @Data
@@ -45,7 +46,7 @@ public class C02ControllerAdviceExceptionHandler extends ResponseEntityException
     private final String message;
   }
 
-  @Override
+/*  @Override
   protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
       HttpHeaders headers, HttpStatus status, WebRequest request) {
     List<InvalidField> invalidFields = ex.getBindingResult().getFieldErrors().stream()
@@ -64,6 +65,6 @@ public class C02ControllerAdviceExceptionHandler extends ResponseEntityException
     Error error = new Error(Collections.emptyList(),
         Arrays.asList(String.format("No handler for %s %s", ex.getHttpMethod(), ex.getRequestURL())));
     return handleExceptionInternal(ex, error, headers, status, request);
-  }
+  }*/
 }
 
