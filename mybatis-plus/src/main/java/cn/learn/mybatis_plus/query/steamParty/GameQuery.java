@@ -21,11 +21,11 @@ public class GameQuery {
   private GameQueryMapper gameQueryMapper;
 
   /**
-   *   通过rowBounds分页
+   * 通过rowBounds分页
    */
-  public List<GameDto> list(int pageNum,int pageSize){
+  public List<GameDto> list(int pageNum, int pageSize) {
     //参数数pageHelper不同
-    RowBounds rowBounds = new RowBounds((pageNum-1)*pageSize,pageSize);
+    RowBounds rowBounds = new RowBounds((pageNum - 1) * pageSize, pageSize);
     List<GameDto> result = gameQueryMapper.list(rowBounds);
     System.out.println(result.get(0));
     System.out.println(result.size());
@@ -35,8 +35,8 @@ public class GameQuery {
   /**
    * 通过pageHelper分页
    */
-  public List<GameDto> quertGames(int pageNum,int pageSize,double score){
-    PageHelper.startPage(pageNum,pageSize);
+  public List<GameDto> quertGames(int pageNum, int pageSize, double score) {
+    PageHelper.startPage(pageNum, pageSize);
     List<GameDto> result = gameQueryMapper.highScoreList(score);
     System.out.println(result.get(0));
     System.out.println(result.size());
