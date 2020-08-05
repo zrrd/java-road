@@ -1,0 +1,5 @@
+spring:
+  r2dbc:
+    url: r2dbc:mysql://192.168.20.117:33306/bg_center?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&tinyInt1isBit=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: huakunmysql123

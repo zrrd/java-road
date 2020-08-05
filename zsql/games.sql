@@ -23,12 +23,12 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `game`;
 CREATE TABLE `game`  (
   `id` int(8) NOT NULL AUTO_INCREMENT,
-  `name` varchar(25) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL COMMENT '游戏名',
-  `price` double(10, 2) NULL DEFAULT NULL COMMENT '游戏价格',
+  `name` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '游戏名',
+  `price` decimal(10,2) NULL DEFAULT NULL COMMENT '游戏价格',
   `publish_date` date NULL DEFAULT NULL COMMENT '发售日期',
   `score` double(2, 0) NULL DEFAULT NULL COMMENT '游戏评分',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci COMMENT = '游戏表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '游戏表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of game
@@ -51,7 +51,7 @@ CREATE TABLE `steam`  (
   `user_id` int(11) NULL DEFAULT NULL COMMENT '用户id',
   `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci COMMENT = '游戏库' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '游戏库' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for user
@@ -59,11 +59,11 @@ CREATE TABLE `steam`  (
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user`  (
   `id` int(8) NOT NULL,
-  `name` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '用户姓名',
+  `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '用户姓名',
   `game_num` int(11) NULL DEFAULT NULL COMMENT '有游戏数',
   `money` double(10, 0) NULL DEFAULT NULL COMMENT '余额',
-  `prefer` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '喜好',
+  `prefer` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '喜好',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci COMMENT = '用户表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户表' ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
