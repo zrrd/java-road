@@ -61,4 +61,8 @@ public class MathTest {
     //2的浮点对数，并且舍入为int，比JDK的Math.log(double) 更快
     DoubleMath.log2(1.2, RoundingMode.UP);
   }
+
+  public static void main(String[] args) {
+    System.out.println(IntMath.divide(61, 60, RoundingMode.UP));
+  }
 }

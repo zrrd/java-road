@@ -5,7 +5,11 @@ import com.google.common.base.CharMatcher;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
+import com.google.common.primitives.Chars;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * String工具类
@@ -78,6 +82,10 @@ public class StringsTest {
   }
 
   public static void main(String[] args) {
-    caseFormatTest();
+    String a = "17826808394";
+    LocalDate now = LocalDate.now();
+    now.format(DateTimeFormatter.ofPattern("MMdd"));
+    String s = UUID.randomUUID().toString().replaceAll("-", "").toUpperCase().substring(0,6);
+
   }
 }

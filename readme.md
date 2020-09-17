@@ -6,7 +6,7 @@
 * generic             泛型
 * good-code           好的代码风格
 * io                  java各种io模式的应用(io nio aio)
-* java8               java8新特性(lambda file-api date function)
+* java-new               java 8-11新特性(lambda file-api date function)
 * jvm                 java虚拟机
 * mybatis-plus        mybatis-plus插件
 * reactor             java 反应式编程
