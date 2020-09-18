@@ -1,11 +1,15 @@
 package cn.learn.java9;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -13,6 +17,7 @@ import java.util.stream.Stream;
  * @author shaoyijiong
  * @date 2020/9/17
  */
+@SuppressWarnings("unused")
 public class Go {
 
   /**
@@ -29,15 +34,90 @@ public class Go {
   }
 
   private static void streamSupper() {
-    Stream<Integer> stream = IntStream.of(1, 2, 3, 4, 5, 1).boxed();
 
     // takeWhile 处理所有小于3的流 直到不符合条件
-    stream.takeWhile(i -> i < 3).forEach(System.out::println);
+    IntStream.of(1, 2, 3, 4, 5, 1).boxed().takeWhile(i -> i < 3).forEach(System.out::println);
+
+    System.out.println(" ----- ");
+
+    // 抛弃满足条件的值 直到 第一个不满足条件的数据出现
+    IntStream.of(1, 2, 3, 4, 5, 1).boxed().dropWhile(i -> i < 3).forEach(System.out::println);
+
+    System.out.println(" ---- ");
+
+    // 遍历所有数据 直到不满足循环 类型 for(i = 0;i<10;i++){}
+    IntStream.iterate(3, x -> x < 20, x -> x + 3).forEach(System.out::println);
+    //
+
+    long count = Stream.ofNullable(100).count();
+    System.out.println(count);
+    // 如果值为空返回一个空的流
+    count = Stream.ofNullable(null).count();
+    System.out.println(count);
+
   }
 
-  public static void main(String[] args) throws InterruptedException {
+  private static void tryWithResources() {
+    // 1.8 try-with-resources 这样用
+    Reader inputString = new StringReader("message");
+    BufferedReader br = new BufferedReader(inputString);
+    // 这边必须还要定义一个引用来接收
+    try (BufferedReader br1 = br) {
+      br1.readLine();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    // 1.9 可以这样用
+    Reader inputString1 = new StringReader("message");
+    BufferedReader br1 = new BufferedReader(inputString);
+    try (br1) {
+      br.readLine();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  private static void diamondOperator() {
+    // 1.8
+    Hello<String> hello = new Hello<String>() {
+      @Override
+      public String sayHello() {
+        return "hello world";
+      }
+    };
+    // 1.9 可以去掉
+    Hello<String> hello1 = new Hello<>() {
+      @Override
+      public String sayHello() {
+        return "hello world";
+      }
+    };
+  }
+
+  static abstract class Hello<T> {
+
+    public abstract T sayHello();
+  }
+
+  private static void  optionTest() {
+    // 返回包含值的流，如果值不存在，则返回空流
+    Stream<String> a = Optional.of("a").stream();
+    // 如果值存在执行前面一个方法 否则执行后面一个方法
+    Optional.ofNullable(null).ifPresentOrElse(System.out::println,()-> System.out.println("null"));
+    // 如果值存在，则返回一个描述该值的 Option ，否则使用 supplier 生成一个值
+    Optional.empty().or(() -> Optional.of("a"));
+  }
+
+  private static void completableFuture() {
+    //支持延误和超时 ( timeout ) 机制
+    //支持子类化
+    //添加了一些新的工厂方法
+    // https://www.twle.cn/c/yufei/java9/java9-baisic-completablefuture-api.html
+  }
+
+
+  public static void main(String[] args) {
     streamSupper();
-    TimeUnit.SECONDS.sleep(10);
   }
 
 }
