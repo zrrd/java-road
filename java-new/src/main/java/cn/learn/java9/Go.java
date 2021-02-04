@@ -1,7 +1,11 @@
 package cn.learn.java9;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.Reader;
 import java.io.StringReader;
 import java.util.ArrayList;
@@ -99,11 +103,11 @@ public class Go {
     public abstract T sayHello();
   }
 
-  private static void  optionTest() {
+  private static void optionTest() {
     // 返回包含值的流，如果值不存在，则返回空流
     Stream<String> a = Optional.of("a").stream();
     // 如果值存在执行前面一个方法 否则执行后面一个方法
-    Optional.ofNullable(null).ifPresentOrElse(System.out::println,()-> System.out.println("null"));
+    Optional.ofNullable(null).ifPresentOrElse(System.out::println, () -> System.out.println("null"));
     // 如果值存在，则返回一个描述该值的 Option ，否则使用 supplier 生成一个值
     Optional.empty().or(() -> Optional.of("a"));
   }
@@ -113,6 +117,20 @@ public class Go {
     //支持子类化
     //添加了一些新的工厂方法
     // https://www.twle.cn/c/yufei/java9/java9-baisic-completablefuture-api.html
+  }
+
+
+  private static void ioNew() throws IOException {
+    // io 包中增加了新的方法来读取和复制 InputStream 中包含的数据
+
+    InputStream inputStream = new FileInputStream("");
+    // readAllBytes：读取 InputStream 中的所有剩余字节。
+    byte[] bytes = inputStream.readAllBytes();
+    // readNBytes： 从 InputStream 中读取指定数量的字节到数组中。
+    final byte[] data = new byte[5];
+    inputStream.readNBytes(data, 0, 5);
+    // transferTo：读取 InputStream 中的全部字节并写入到指定的 OutputStream 中 。
+    inputStream.transferTo(new FileOutputStream(""));
   }
 
 

@@ -12,6 +12,8 @@ public class Go {
    * 局部类型推断
    */
   private static void  infer() {
+    // 局部类型推断
+
     // ArrayList<String>
     var list = new ArrayList<String>();
     // Stream<String>
