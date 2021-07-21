@@ -33,7 +33,7 @@ public class DateTimeFormatterTest {
     //上午09时10分00秒
     DateTimeFormatter.ofLocalizedTime(FormatStyle.LONG).format(LocalTime.of(9, 10, 0));
     //2017-2-27 22:32:03
-    DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).format(LocalDateTime.now());
+    DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).format(LocalDateTime.now());
 
     //自定义格式化方式
     //2017-02-27 22:48:52

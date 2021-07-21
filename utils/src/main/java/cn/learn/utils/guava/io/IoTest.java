@@ -129,6 +129,10 @@ public class IoTest {
   }
 
   public static void main(String[] args) throws Exception {
-    filesTest();
+    File file = new File("D:\\a.txt");
+    OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(file));
+    writer.append("时间" );
+    writer.flush();
+    writer.close();
   }
 }
