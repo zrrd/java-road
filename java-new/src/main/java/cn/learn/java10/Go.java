@@ -15,12 +15,12 @@ public class Go {
     // 局部类型推断
 
     // ArrayList<String>
-    var list = new ArrayList<String>();
-    // Stream<String>
-    var stream = list.stream();
+    //var list = new ArrayList<String>();
+    //// Stream<String>
+    //var stream = list.stream();
 
-    for (var s : list) {
-      System.out.println(s);
-    }
+    //for (var s : list) {
+    //  System.out.println(s);
+    //}
   }
 }

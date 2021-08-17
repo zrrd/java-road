@@ -14,9 +14,12 @@ import java.util.Arrays;
  */
 public class BrowscapTest {
 
-  private static String chrome = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36";
-  private static String android = "Mozilla/5.0 (Linux; Android 9; MRD-AL00 Build/HUAWEIMRD-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.3729.136 Mobile Safari/537.36 autohomeapp/1.1 (auto_android;10.5.0;bd83OCH_SAIUYZAdy5PMLArt4wpnvBIGRQk2IMvpnS8NQnOUPQ_6T9lQuSjhPEh0LRp7f74sok8E3HPIpSo7GSqs-4xsW4ZY;9;MRD-AL00;86b01d15c1aec6d83ce3e4c65483a7e9) auto_android/10.5.0 nettype/4g";
-  private static String ios = "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 auto_iphone/9.11.6 nettype/wifi autohomeapp/1.0 (auto_iphone;9.11.6;ogVdSGe10f0msF8sfFgt6ICqejn25XPsH9pRGovTt-_WLZ23svBNYqlgSLW6ICDj8CM_gUspTJ5EUaBCUKWKlKpoi3z9PPf8f_K68RhByIiBQ_K7rtZ2EpQ3wu9XzRCS;13.3;iPhone;6CC911A997BCCC616A67088234E23060)";
+  private static String chrome =
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36";
+  private static String android =
+      "Mozilla/5.0 (Linux; Android 9; MRD-AL00 Build/HUAWEIMRD-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.3729.136 Mobile Safari/537.36 autohomeapp/1.1 (auto_android;10.5.0;bd83OCH_SAIUYZAdy5PMLArt4wpnvBIGRQk2IMvpnS8NQnOUPQ_6T9lQuSjhPEh0LRp7f74sok8E3HPIpSo7GSqs-4xsW4ZY;9;MRD-AL00;86b01d15c1aec6d83ce3e4c65483a7e9) auto_android/10.5.0 nettype/4g";
+  private static String ios =
+      "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 auto_iphone/9.11.6 nettype/wifi autohomeapp/1.0 (auto_iphone;9.11.6;ogVdSGe10f0msF8sfFgt6ICqejn25XPsH9pRGovTt-_WLZ23svBNYqlgSLW6ICDj8CM_gUspTJ5EUaBCUKWKlKpoi3z9PPf8f_K68RhByIiBQ_K7rtZ2EpQ3wu9XzRCS;13.3;iPhone;6CC911A997BCCC616A67088234E23060)";
 
   /**
    * 使用默认的解析器

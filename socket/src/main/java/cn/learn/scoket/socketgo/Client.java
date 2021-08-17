@@ -19,7 +19,6 @@ import java.net.Socket;
  */
 @Component
 public class Client implements Runnable {
-  private static final Logger logger = LoggerFactory.getLogger(TestCMPPEndPoint.class);
 
   @Value("${myserver.host}")
   private String host;

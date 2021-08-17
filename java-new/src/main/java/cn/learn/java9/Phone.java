@@ -15,7 +15,7 @@ public interface Phone {
   /**
    * 相比jdk8新增了私有方法
    */
-  private void callWorl() {
-    System.out.println("world");
-  }
+  //private void callWorld() {
+  //  System.out.println("world");
+  //}
 }
