@@ -1,3 +1,5 @@
+package powermock;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 import static org.powermock.api.mockito.PowerMockito.mock;
@@ -16,7 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @date 2021/8/20
  */
 @Slf4j
-public class PowerMockTest {
+public class PowerMockWhiteboxTest {
 
   public static class ServiceHolder {
 
@@ -108,7 +110,7 @@ public class PowerMockTest {
    */
   @Test
   public void invokeMethod() throws Exception {
-    int sum = Whitebox.<Integer>invokeMethod(new PowerMockTest(), "sum", 1, 2);
+    int sum = Whitebox.<Integer>invokeMethod(new PowerMockWhiteboxTest(), "sum", 1, 2);
 
     // 对于重载的方法 , 通过指定参数类型找到对应的方法
     // private int myMethod(int id) {
@@ -118,9 +120,9 @@ public class PowerMockTest {
     // private int myMethod(Integer id) {
     // 		return 3*id;
     // }
-    int result = Whitebox.<Integer>invokeMethod(new PowerMockTest(), new Class<?>[] {int.class}, "myMethod", 1);
+    int result = Whitebox.<Integer>invokeMethod(new PowerMockWhiteboxTest(), new Class<?>[] {int.class}, "myMethod", 1);
     // 调用静态方法
-    int sum1 = Whitebox.<Integer>invokeMethod(PowerMockTest.class, "sum", 1, 2);
+    int sum1 = Whitebox.<Integer>invokeMethod(PowerMockWhiteboxTest.class, "sum", 1, 2);
     // 通过不指定方法名的方式调用
     // Whitebox.invokeMethod(myInstance, param1, param2);
 
