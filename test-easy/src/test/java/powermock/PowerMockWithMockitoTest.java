@@ -1,12 +1,15 @@
+package powermock;
+
+
 import static org.mockito.Mockito.atLeastOnce;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.powermock.api.mockito.PowerMockito.*;
 
+import cn.learn.test.bean.Game;
+import cn.learn.test.bean.GameVo;
+import cn.learn.test.unit.GameConvertUnits;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -15,14 +18,45 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
+import org.mockito.Mockito;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
 /**
  * @author shaoyijiong
- * @date 2020/4/1
+ * @date 2021/8/22
  */
-@SuppressWarnings("all")
-public class JustMockitoTest {
+@RunWith(PowerMockRunner.class)
+@PrepareForTest(GameConvertUnits.class)
+public class PowerMockWithMockitoTest {
+
+  /**
+   * mock static method
+   */
+  @Test
+  public void staticTest() {
+    PowerMockito.mockStatic(GameConvertUnits.class);
+    Game game = new Game();
+    GameVo gameVo = new GameVo();
+    Mockito.when(GameConvertUnits.convert(Mockito.any())).thenReturn(gameVo);
+    GameConvertUnits.convert(Mockito.any(Game.class));
+    GameConvertUnits.convert(Mockito.any(Game.class));
+    PowerMockito.verifyStatic(GameConvertUnits.class, times(2));
+  }
+
+  /**
+   * How to mock construction of new objects
+   */
+  @Test
+  public void a() throws Exception {
+    PowerMockito.whenNew(Game.class).withNoArguments().thenThrow(new RuntimeException());
+    Game game = new Game();
+    game.getId();
+  }
+
 
   /**
    * 创建mock对象
@@ -76,7 +110,7 @@ public class JustMockitoTest {
     String result = i.next() + " " + i.next(); // 2
     Assert.assertEquals("Hello, Mockito!", result);
 
-    doThrow(new NoSuchElementException()).when(i).next(); // 3
+    when(i.next()).thenThrow(new NoSuchElementException()); // 3
     i.next(); // 4
   }
 
@@ -141,7 +175,7 @@ public class JustMockitoTest {
     ArgumentCaptor<List> argument = ArgumentCaptor.forClass(List.class);
     mockedList.addAll(list);
     verify(mockedList).addAll(argument.capture());
-    
+
     Assert.assertEquals(2, argument.getValue().size());
     Assert.assertEquals(list, argument.getValue());
   }
