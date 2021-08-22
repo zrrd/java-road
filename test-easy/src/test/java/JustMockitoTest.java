@@ -22,7 +22,7 @@ import org.mockito.ArgumentCaptor;
  * @date 2020/4/1
  */
 @SuppressWarnings("all")
-public class JustMockTest {
+public class JustMockitoTest {
 
   /**
    * 创建mock对象
