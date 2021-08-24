@@ -15,8 +15,8 @@ CREATE TABLE `game`  (
   `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '游戏类型 rpg action shooter ',
   `status` tinyint(0) NOT NULL COMMENT '状态 1 - 在售 9 - 删除 0 - 未发售',
   PRIMARY KEY (`id`) USING BTREE,
-  INDEX `idx_name`(`name`) USING BTREE,
-  INDEX `idx_type`(`type`) USING BTREE
+  KEY `idx_name`(`name`) USING BTREE,
+  KEY `idx_type`(`type`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '游戏表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------

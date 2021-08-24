@@ -1,7 +1,7 @@
 package cn.learn.test.dao;
 
 import cn.learn.test.bean.Game;
-import cn.learn.test.mapper.GameMapper;
+import cn.learn.test.dao.mapper.GameMapper;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 
