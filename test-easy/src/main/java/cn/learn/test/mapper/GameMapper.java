@@ -2,6 +2,7 @@ package cn.learn.test.mapper;
 
 
 import cn.learn.test.bean.Game;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -14,7 +15,7 @@ import org.apache.ibatis.annotations.Select;
  * @author shaoyijiong
  */
 @Mapper
-public interface GameMapper {
+public interface GameMapper extends BaseMapper<Game> {
 
   /**
    * 根据id查找game.

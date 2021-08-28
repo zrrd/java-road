@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    username: sa
+    password:
+    url: jdbc:h2:mem:games;INIT=runscript from 'classpath:schema-h2.sql';DB_CLOSE_DELAY=-1;MODE=MySQL
+    driver-class-name: org.h2.Driver
+    #指定连接池类型  不配置的话Spring默认为HikariDataSource
+    type: com.zaxxer.hikari.HikariDataSource
+#mybatis
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
