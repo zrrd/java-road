@@ -1,4 +1,4 @@
-package cn.learn.test.mapper;
+package cn.learn.test.dao.mapper;
 
 
 import cn.learn.test.bean.Game;
@@ -43,6 +43,6 @@ public interface GameMapper extends BaseMapper<Game> {
    * @return 插入结果
    */
   @Options(useGeneratedKeys = true, keyProperty = "id")
-  @Insert("insert into game(name,price,publish_date,score) values(#{name},#{price},#{publishDate},#{score})")
+  @Insert("insert into game(id,name,price,publish_date,score,status) values(#{id},#{name},#{price},#{publishDate},#{score},#{status})")
   int insertGame(Game game);
 }
