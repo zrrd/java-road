@@ -8,6 +8,9 @@ package cn.learn.designpattern.singleton;
  */
 public class DoubleCheckSingleton {
 
+  /**
+   * 需要 volatile 可能语句重排导致问题,导致在没有初始化的时候返回
+   */
   private static volatile DoubleCheckSingleton instance;
 
   private DoubleCheckSingleton() {

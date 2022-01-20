@@ -2,6 +2,7 @@ package cn.learn.designpattern.singleton;
 
 /**
  * 枚举单例(不太好  可读性差)
+ * 反序列化 防止反射
  *
  * @author 邵益炯
  * @date 2018/10/9
