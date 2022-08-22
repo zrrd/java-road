@@ -5,7 +5,7 @@ import static org.hamcrest.Matchers.notNullValue;
 
 import cn.learn.test.bean.Game;
 import cn.learn.test.dao.GameDao;
-import cn.learn.test.mapper.GameMapper;
+import cn.learn.test.dao.mapper.GameMapper;
 import db.TestApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
