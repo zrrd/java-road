@@ -47,6 +47,7 @@ public class CacheLineEffect {
     private static class C {
         public volatile long x = 0L;
         // 填充7位让一个C就是占满一个缓存行
+        // 缓存行对齐
         public volatile long x1, x2, x3, x4, x5, x6, x7;
     }
 
