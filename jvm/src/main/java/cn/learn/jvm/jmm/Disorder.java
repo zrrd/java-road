@@ -20,6 +20,7 @@ public class Disorder {
                 public void run() {
                     //由于线程one先启动，下面这句话让它等一等线程two. 读着可根据自己电脑的实际性能适当调整等待时间.
                     //shortWait(100000);
+                    // 如下语句没有依赖关系 (可能导致cpu重排)
                     a = 1;
                     x = b;
                 }
@@ -27,6 +28,7 @@ public class Disorder {
 
             Thread other = new Thread(new Runnable() {
                 public void run() {
+                    // 如下语句没有依赖关系 (可能导致cpu重排)
                     b = 1;
                     y = a;
                 }
