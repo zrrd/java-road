@@ -8,6 +8,7 @@
 * io                  java各种io模式的应用(io nio aio)
 * java-new               java 8-11新特性(lambda file-api date function)
 * jvm                 java虚拟机
+* network             java网络编程相关代码
 * mybatis-plus        mybatis-plus插件
 * reactor             java 反应式编程
 * reference           java 的4种引用类型

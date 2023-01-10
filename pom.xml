@@ -29,6 +29,7 @@
     <module>reactor</module>
     <module>reference</module>
     <module>test-easy</module>
+    <module>network</module>
   </modules>
 
   <properties>

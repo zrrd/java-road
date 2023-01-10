@@ -1,20 +1,9 @@
 package cn.learn.utils.guava.math;
 
-import com.alibaba.fastjson.JSON;
-import com.dingtalk.api.DefaultDingTalkClient;
-import com.dingtalk.api.DingTalkClient;
-import com.dingtalk.api.request.OapiMessageCorpconversationAsyncsendV2Request;
-import com.dingtalk.api.request.OapiServiceGetAuthInfoRequest;
-import com.dingtalk.api.response.OapiMessageCorpconversationAsyncsendV2Response;
-import com.dingtalk.api.response.OapiServiceGetAuthInfoResponse;
-import com.google.common.base.Joiner;
 import com.google.common.math.DoubleMath;
 import com.google.common.math.IntMath;
-import com.google.common.math.LongMath;
-import com.taobao.api.ApiException;
 
 import java.math.RoundingMode;
-import java.util.concurrent.CompletableFuture;
 
 /**
  * https://wizardforcel.gitbooks.io/guava-tutorial/content/28.html
