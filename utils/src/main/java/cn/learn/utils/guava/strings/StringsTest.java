@@ -53,6 +53,7 @@ public class StringsTest {
     CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, "get_sex"); // returns "constantName"
   }
 
+
   @SuppressWarnings("ResultOfMethodCallIgnored")
   private static void stringsTest() {
     Strings.isNullOrEmpty("a");
@@ -82,10 +83,8 @@ public class StringsTest {
   }
 
   public static void main(String[] args) {
-    String a = "17826808394";
-    LocalDate now = LocalDate.now();
-    now.format(DateTimeFormatter.ofPattern("MMdd"));
-    String s = UUID.randomUUID().toString().replaceAll("-", "").toUpperCase().substring(0,6);
+
+    CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_HYPHEN, "nbugs");
 
   }
 }
