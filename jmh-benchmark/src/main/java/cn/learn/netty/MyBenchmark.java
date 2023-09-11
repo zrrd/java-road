@@ -29,7 +29,7 @@
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package cn.learn.jmh;
+package cn.learn.netty;
 
 import org.apache.commons.lang3.RandomUtils;
 import org.openjdk.jmh.annotations.*;
