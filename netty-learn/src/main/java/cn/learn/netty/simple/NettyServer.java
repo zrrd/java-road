@@ -19,6 +19,7 @@ import io.netty.util.concurrent.GenericFutureListener;
  */
 public class NettyServer {
     public static void main(String[] args) {
+        // 引导类 用于启动服务端
         ServerBootstrap serverBootstrap = new ServerBootstrap();
         // boss 对应 IOServer.java 中的接受新连接线程，主要负责创建新连接
         NioEventLoopGroup boss = new NioEventLoopGroup();
