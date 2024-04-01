@@ -59,7 +59,8 @@ public class NettyClient {
         @Override
         public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
             ByteBuf byteBuf = (ByteBuf) msg;
-
+            byteBuf.capacity();
+            byteBuf.maxCapacity();
             System.out.println(new Date() + ": 客户端读到数据 -> " + byteBuf.toString(StandardCharsets.UTF_8));
         }
 
