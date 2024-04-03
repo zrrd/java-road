@@ -1,0 +1,10 @@
+syntax = "proto3";
+package cn.learn.utils;
+option java_package = "cn.learn.utils.proto";
+option java_outer_classname = "LoginRequests";
+
+message LoginRequest {
+  int64 user_id = 1;
+  string username = 2;
+  string password = 3;
+}
