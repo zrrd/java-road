@@ -12,6 +12,6 @@ public class TestCommand {
         LoginRequest loginRequest = LoginRequest.newBuilder().setUserId(1L).setUsername("张三").setPassword("aa").build();
         ByteBuf encode = PacketCode.encode(CommandEnum.login, loginRequest);
         Packet decode = PacketCode.decode(encode);
-        System.out.println(decode.getDate());
+        System.out.println(decode.getDate().getClass());
     }
 }
