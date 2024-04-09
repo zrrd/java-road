@@ -1,6 +1,8 @@
 package cn.learn.netty.im.packet.command;
 
 /**
+ * 命令枚举
+ *
  * @author shaoyijiong
  * @date 2024/4/9
  */
