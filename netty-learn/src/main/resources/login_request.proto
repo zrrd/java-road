@@ -1,0 +1,11 @@
+syntax = "proto3";
+package cn.learn.netty;
+option java_package = "cn.learn.netty.im.packet.command";
+option java_multiple_files = true;
+option java_outer_classname = "Commands";
+
+message LoginRequest {
+  int64 user_id = 1;
+  string username = 2;
+  string password = 3;
+}
