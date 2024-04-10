@@ -7,7 +7,12 @@ package cn.learn.netty.im.packet.command;
  * @date 2024/4/9
  */
 public enum CommandEnum {
-    login((byte) 1);
+    login((byte) 1),
+
+    login_rsp((byte) 2),
+
+    message((byte) 3),
+    message_rsp((byte) 4);
 
     byte command;
 

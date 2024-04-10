@@ -22,6 +22,9 @@ public class PacketCode {
     static {
         packetTypeMap = new HashMap<>();
         packetTypeMap.put(CommandEnum.login.command, LoginRequest.class);
+        packetTypeMap.put(CommandEnum.login_rsp.command, LoginResponse.class);
+        packetTypeMap.put(CommandEnum.message.command, MessageRequest.class);
+        packetTypeMap.put(CommandEnum.message_rsp.command, MessageResponse.class);
 
     }
 

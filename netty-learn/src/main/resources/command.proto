@@ -9,3 +9,16 @@ message LoginRequest {
   string username = 2;
   string password = 3;
 }
+
+message LoginResponse {
+  bool success = 1;
+  string reason = 2;
+}
+
+message MessageRequest {
+  string message = 1;
+}
+
+message MessageResponse {
+  string message = 1;
+}

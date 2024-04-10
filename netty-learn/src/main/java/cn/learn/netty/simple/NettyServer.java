@@ -61,6 +61,8 @@ public class NettyServer {
         });
         // attr()方法可以给服务端的 channel，也就是NioServerSocketChannel指定一些自定义属性，然后我们可以通过channel.attr()取出这个属性，比如，上面的代码我们指定我们服务端channel的一个serverName属性，属性值为nettyServer，其实说白了就是给NioServerSocketChannel维护一个map而已，通常情况下，我们也用不上这个方法。
         // 那么，当然，除了可以给服务端 channel NioServerSocketChannel指定一些自定义属性之外，我们还可以给每一条连接指定自定义属性
+        // attr用于设置或获取Bootstrap的属性，而childAttr用于设置或获取由ServerBootstrap接受的子Channel的属性。这样，你可以为每个子Channel设置或获取特定的属性，而不仅仅是Bootstrap本身的属性。
+        // ctx.channel().attr用于操作与特定连接（即Channel）相关联的属性，而serverBootstrap.childAttr用于设置新接受的Channel的默认属性。
         serverBootstrap.attr(AttributeKey.newInstance("serverName"), "nettyServer");
         // childAttr可以给每一条连接指定自定义属性，然后后续我们可以通过channel.attr()取出该属性。
         serverBootstrap.childAttr(AttributeKey.newInstance("clientKey"), "clientValue");
